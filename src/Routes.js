@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 
 import Home from './components/Home';
+import Rules from './components/Rules';
 import Nav from './components/Nav';
 
 const App = () =>
@@ -13,6 +14,7 @@ const App = () =>
     <div>
       <Nav />
       <Route exact path="/" component={Home}/>
+      <Route exact path="/rules" component={Rules}/>
     </div>
   </Router>
 );

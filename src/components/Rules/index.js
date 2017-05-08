@@ -1,17 +1,16 @@
 import React from 'react';
-import './Home.css';
 
-const Home = () =>
+const Rules = () =>
 (
   <div>
     <section className="hero is-primary">
       <div className="hero-body">
         <div className="container">
           <h1 className="title">
-            Welcome to PWA Online Hackathon
+            Rules & FAQ
           </h1>
           <h2 className="subtitle">
-            The first online hackathon in Thailand
+            กฎ กติกา และคำถามที่พบบ่อย
           </h2>
         </div>
       </div>
@@ -19,4 +18,4 @@ const Home = () =>
   </div>
 );
 
-export default Home;
+export default Rules;

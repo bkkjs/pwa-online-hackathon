@@ -1,6 +1,6 @@
 import React from 'react';
 import Routes from './Routes';
-import 'bulma/css/bulma.css';
+import './App.scss';
 import 'font-awesome/css/font-awesome.css';
 
 const App = () =>
