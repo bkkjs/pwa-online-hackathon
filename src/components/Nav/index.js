@@ -1,26 +1,31 @@
 import React from 'react';
+import {
+  Route, Link
+} from 'react-router-dom';
+import logo from './logo-nav.png';
+import './Nav.css';
 
 const Nav = () =>
 (
   <nav className="nav">
     <div className="nav-left">
-      <a className="nav-item">
-        <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma logo" />
-      </a>
-    </div>
-
-    <div className="nav-center">
-      <a className="nav-item">
+      <a className="nav-item" href="https://github.com/bkkjs/pwa-online-hackathon" target="_blank">
         <span className="icon">
           <i className="fa fa-github"></i>
         </span>
       </a>
-      <a className="nav-item">
+      <a className="nav-item" href="https://www.facebook.com/web.developer.th" target="_blank">
         <span className="icon">
-          <i className="fa fa-twitter"></i>
+          <i className="fa fa-facebook"></i>
         </span>
       </a>
     </div>
+    <div className="nav-center">
+      <Link to="/" className="nav-item logo">
+        <img src={logo} alt="PWA Online Hackathon logo" />
+      </Link>
+    </div>
+
     <span className="nav-toggle">
       <span></span>
       <span></span>

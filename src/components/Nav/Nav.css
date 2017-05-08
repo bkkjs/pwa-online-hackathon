@@ -1,0 +1,9 @@
+.nav-item.logo {
+  width: 120px;
+  position: absolute;
+  z-index: 20;
+}
+
+.nav-item.logo img {
+  max-height: none;
+}
