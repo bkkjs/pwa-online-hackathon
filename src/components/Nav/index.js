@@ -12,7 +12,7 @@ const Nav = (props) =>
       <div className="nav-item">
         <div className="field is-grouped">
           <p className="control">
-            <a className="button" >
+            <a className="button is-warning">
               <span className="icon">
                 <i className="fa fa-trophy"></i>
               </span>
