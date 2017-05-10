@@ -24,6 +24,13 @@ Online Hackathon คือ การแข่งขัน Hackathon ที่ไ
       <h1 className="title">กฏเหล็ก</h1>
       กฏเหล็กของเราคือ Developer ต้อง Create Web application ที่ไม่มี Backend และรันบน Static server ได้
     </div>
+    <div className="container">
+      <h1 className="title">รางวัล</h1>
+      รางวัลเยอะจัดพิมพ์ตรงนี้ไม่หมด กดไปดูหน้ารางวัลเลย
+    </div>
+    <div className="container">
+      สมัครเลย
+    </div>
   </div>
 );
 
