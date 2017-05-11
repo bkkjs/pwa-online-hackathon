@@ -62,6 +62,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js && sw-precache --config=sw-precache-config.js",
+    "deploy": "firebase deploy",
     "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
