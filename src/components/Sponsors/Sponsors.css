@@ -1,0 +1,15 @@
+.platinum-sponsors img {
+  max-width: 200px;
+  margin: 0 40px;
+}
+.gold-sponsors, .platinum-sponsors, .main-sponsors {
+  margin: 90px 0;
+}
+.gold-sponsors img {
+  max-width: 100px;
+  margin: 0 40px;
+}
+.main-sponsors img {
+  max-width: 300px;
+  margin: 0 40px;
+}
