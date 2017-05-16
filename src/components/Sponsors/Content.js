@@ -14,7 +14,7 @@ const SponsorsContent = () =>
   <section className="section">
     <div className="container">
       <div className="content sponsor-header">
-        <h2 className="title is-4">Sponsors</h2>
+        <h2 className="title is-3">Sponsors ผู้ใจดี</h2>
       </div>
       <div className="content has-text-centered">
         <div className="platinum-sponsors">

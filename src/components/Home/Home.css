@@ -1,6 +1,9 @@
 .title.is-4{
   font-weight: bold;
 }
+.title.is-3{
+  font-weight: bold;
+}
 .content > p {
   margin-bottom: 3em !important;
 }
