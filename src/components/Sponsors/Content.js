@@ -13,18 +13,15 @@ const SponsorsContent = () =>
 (
   <section className="section">
     <div className="container">
-      <div className="content">
-        <h2 className="title is-2">Sponsors</h2>
-        <p>งานนี้จะเกิดขึ้นไม่ได้เลยถ้าขาดผู้สนับสนุนใจดีของเราดังต่อไปนี้</p>
+      <div className="content sponsor-header">
+        <h2 className="title is-4">Sponsors</h2>
       </div>
       <div className="content has-text-centered">
-        <div className="main-sponsors">
-          <img src={LogoFirebase} alt="logo" />
-        </div>
         <div className="platinum-sponsors">
           <img src={LogoSellsuki} alt="logo" />
           <img src={LogoSprint3r} alt="logo" />
           <img src={LogoTencent} alt="logo" />
+          <img src={LogoFirebase} alt="logo" />
         </div>
         <div className="gold-sponsors">
           <img src={Logo3DS} alt="logo" />

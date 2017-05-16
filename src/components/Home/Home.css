@@ -1,0 +1,14 @@
+.title.is-4{
+  font-weight: bold;
+}
+.content > p {
+  margin-bottom: 3em !important;
+}
+
+.register-button {
+  text-align: center;
+}
+.hero-body .title, .hero-body .subtitle {
+  text-align: center;
+  font-weight: bold;
+}
