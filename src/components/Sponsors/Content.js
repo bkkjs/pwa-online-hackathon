@@ -6,7 +6,7 @@ import LogoSellsuki from './logos/sellsuki.png';
 import LogoSprint3r from './logos/sprint3r.png';
 import LogoTencent from './logos/tencent.png';
 import LogoThoth from './logos/thothzocial.png';
-import LogoFirebase from './logos/firebase.png';
+import LogoCleverse from './logos/cleverse.png';
 import LogoGoogleDeveloper from './logos/lockup-color.svg';
 import './Sponsors.css';
 
@@ -30,6 +30,7 @@ const SponsorsContent = () =>
           <img src={LogoNextzy} alt="logo" />
           <img src={LogoPantip} alt="logo" />
           <img src={LogoThoth} alt="logo" />
+          <img src={LogoCleverse} style={{maxWidth: '130px'}} alt="logo" />
         </div>
       </div>
     </div>
