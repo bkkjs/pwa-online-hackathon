@@ -3,6 +3,9 @@ import './Home.css';
 import { Link } from "react-router-dom";
 import SponsorsContent from "../Sponsors/Content";
 
+import noServerIcon from "./no_server_icon.png";
+import staticIcon from "./static_icon.png";
+
 const Home = () =>
 (
   <div>
@@ -21,20 +24,36 @@ const Home = () =>
     <section className="section">
       <div className="container">
         <div className="content">
-          <h2 className="title is-2">PWA Online hackathon คืออะไร</h2>
+          <h2 className="title is-4">PWA Online hackathon คืออะไร</h2>
           <p>
-            PWA Online Hackathon เป็นการแข่งขัน Hackathon ที่ไม่ต้องมาเจอหน้ากันจริงๆ ต่างคนต่างทำอยู่บ้าน สร้าง Web Application เจ๋ง ๆ แล้วส่งมาแข่งกันผ่าน online Web Application ของใครเจ๋ง ก็รับรางวัลมากมายจากเราไปได้เลย
+            PWA Online Hackathon เป็นการแข่งขัน Hackathon <strong>ที่ไม่ต้องมาเจอหน้ากันจริงๆ ต่างคนต่างทำอยู่บ้าน</strong> สร้าง Web Application เจ๋ง ๆ แล้วส่งมาแข่งกันผ่าน online Web Application ของใครเจ๋ง ก็รับรางวัลมากมายจากเราไปได้เลย
           </p>
-          <h2 className="title is-2">กฏเหล็ก</h2>
+          <h2 className="title is-4">จะแข่งขันมีกฏอะไรบ้าง</h2>
           <p>
-            กฏเหล็กของเราคือนักพัฒนาต้องสร้าง Web application ที่ไม่มี Backend และสามารถรันบน Static server ได้ สามารถอ่านกฎเพิ่มเติมได้<Link to="/rules">ที่่นี่</Link>
+            <div className="columns">
+              <div className="column">
+              </div>
+              <div className="column">
+              </div>
+              <div className="column">
+                <img src={noServerIcon}/>
+              </div>
+              <div className="column">
+                <img src={staticIcon}/>
+              </div>
+              <div className="column">
+              </div>
+              <div className="column">
+              </div>
+            </div>
+            <br/>
+            กฏเหล็กของเราคือนักพัฒนาต้องสร้าง Web application ที่ <strong>"ไม่มี Backend และสามารถรันบน Static server ได้"</strong> สามารถอ่านกฎเพิ่มเติมได้ ส่วนกฏที่เหลืออ่านได้<Link to="/rules">ที่นี่</Link>
           </p>
-          <h2 className="title is-2">ของรางวัล</h2>
+          <h2 className="title is-4">มีของของรางวัลอะไรบ้าง</h2>
           <p>
-            ของรางวัลเยอะจัด พิมพ์ตรงนี้ไม่หมด กดไปดูที่<Link to="/prizes">หน้ารางวัล</Link>ได้เลย
+            ของรางวัลเยอะจัด มีทั้ง Google Pixel, Google Chrome book, Google chrome cast, รางวัลจาก Sponsor อย่าง Credit JOOX ฟรี หรือ เงินสดจาก Sellsuki ก็มา บอกตรงๆว่าพิมพ์ตรงนี้ไม่หมด กดไปดูที่<Link to="/prizes">หน้ารางวัล</Link>ได้เลย
           </p>
-          <h2 className="title is-2">สมัครเข้าร่วม Hackathon</h2>
-          <p>Coming soon</p>
+          <p className="register-button"><a className="button is-warning is-focused is-large">เปิดรับสมัคร เร็วๆนี้</a></p>
         </div>
       </div>
     </section>
