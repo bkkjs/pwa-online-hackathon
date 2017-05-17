@@ -3,6 +3,9 @@ import './Home.css';
 import { Link } from "react-router-dom";
 import SponsorsContent from "../Sponsors/Content";
 
+import noServerIcon from "./no_server_icon.png";
+import staticIcon from "./static_icon.png";
+
 const Home = () =>
 (
   <div>
@@ -27,6 +30,23 @@ const Home = () =>
           </p>
           <h2 className="title is-4">จะแข่งขันมีกฏอะไรบ้าง</h2>
           <p>
+            <div className="columns">
+              <div className="column">
+              </div>
+              <div className="column">
+              </div>
+              <div className="column">
+                <img src={noServerIcon}/>
+              </div>
+              <div className="column">
+                <img src={staticIcon}/>
+              </div>
+              <div className="column">
+              </div>
+              <div className="column">
+              </div>
+            </div>
+            <br/>
             กฏเหล็กของเราคือนักพัฒนาต้องสร้าง Web application ที่ <strong>"ไม่มี Backend และสามารถรันบน Static server ได้"</strong> สามารถอ่านกฎเพิ่มเติมได้ ส่วนกฏที่เหลืออ่านได้<Link to="/rules">ที่นี่</Link>
           </p>
           <h2 className="title is-4">มีของของรางวัลอะไรบ้าง</h2>
