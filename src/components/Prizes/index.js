@@ -1,4 +1,5 @@
 import React from 'react';
+import './Prizes.css';
 
 const Prizes = () =>
 (
@@ -18,31 +19,41 @@ const Prizes = () =>
     <section className="section">
       <div className="container">
         <div className="content">
-          <p>การแข่งขัน PWA Online Hackathon ครั้งนี้แบ่งรางวัลออกเป็นทั้งหมด 4 รางวัล ดังนี้</p>
-          <h2 className="title is-2">รางวัลอันดับ 1</h2>
-          <ul>
-            <li>Pixel Phone</li>
-            <li>Chromebook</li>
-            <li>Chromecast</li>
-            <li>Google Cloud Credit 5,000 USD</li>
-            <li>5x 1 year Joox VIP codes</li>
-            <li>10,000 THB cash from Sellsuki</li>
-          </ul>
-          <h2 className="title is-2">รางวัลรองอันดับ 1</h2>
-          <ul>
-            <li>Google Cloud Credit 3,000 USD</li>
-            <li>5x 1 month Joox VIP codes</li>
-          </ul>
-          <h2 className="title is-2">รางวัลรองอันดับ 2</h2>
-          <ul>
-            <li>Google Cloud Credit 2,000 USD</li>
-            <li>5x 1 month Joox VIP codes</li>
-          </ul>
-          <h2 className="title is-2">รางวัล Firebase ยอดเยี่ยม</h2>
-          <ul>
-            <li>Google Cloud Credit 1,000 USD</li>
-            <li>5x 1 month Joox VIP codes</li>
-          </ul>
+          <p className="prize-header">การแข่งขัน PWA Online Hackathon ครั้งนี้แบ่งรางวัลออกเป็นทั้งหมด 4 รางวัล ดังนี้</p>
+          <div className="columns">
+            <div class="column">
+              <h2 className="title is-5 prize-title">รางวัลอันดับ 1</h2>
+              <ul>
+                <li>1 x Pixel Phone</li>
+                <li>Google Cloud Credit 5,000 USD</li>
+                <li>5 x 1 year Joox VIP codes</li>
+                <li>10,000 THB cash from Sellsuki</li>
+              </ul>
+            </div>
+            <div class="column">
+              <h2 className="title is-5 prize-title">รางวัลรองอันดับ 1</h2>
+              <ul>
+                <li>1 x Chromebook</li>
+                <li>Google Cloud Credit 3,000 USD</li>
+                <li>5x 1 month Joox VIP codes</li>
+              </ul>
+            </div>
+            <div class="column">
+              <h2 className="title is-5 prize-title">รางวัลรองอันดับ 2</h2>
+              <ul>
+                <li>1 x Chromecast</li>
+                <li>Google Cloud Credit 2,000 USD</li>
+                <li>5x 1 month Joox VIP codes</li>
+              </ul>
+            </div>
+            <div class="column">
+              <h2 className="title is-5 prize-title">รางวัล Firebase ยอดเยี่ยม</h2>
+              <ul>
+                <li>Google Cloud Credit 1,000 USD</li>
+                <li>5x 1 month Joox VIP codes</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>

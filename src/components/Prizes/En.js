@@ -19,7 +19,7 @@ const Prizes = () =>
       <div className="container">
         <div className="content">
           <p>In this PWA Online Hackathon Thailand. There are 4 following prizes</p>
-          <h2 className="title is-2">The Winner</h2>
+          <h2 className="title is-5">The Winner</h2>
           <ul>
             <li>Pixel Phone</li>
             <li>Chromebook</li>
@@ -28,17 +28,17 @@ const Prizes = () =>
             <li>5x 1 year Joox VIP codes</li>
             <li>10,000 THB cash from Sellsuki</li>
           </ul>
-          <h2 className="title is-2">1st Runnerup</h2>
+          <h2 className="title is-5">1st Runnerup</h2>
           <ul>
             <li>Google Cloud Credit 3,000 USD</li>
             <li>5x 1 month Joox VIP codes</li>
           </ul>
-          <h2 className="title is-2">2nd Runnerup</h2>
+          <h2 className="title is-5">2nd Runnerup</h2>
           <ul>
             <li>Google Cloud Credit 2,000 USD</li>
             <li>5x 1 month Joox VIP codes</li>
           </ul>
-          <h2 className="title is-2">Best Firebase Application</h2>
+          <h2 className="title is-5">Best Firebase Application</h2>
           <ul>
             <li>Google Cloud Credit 1,000 USD</li>
             <li>5x 1 month Joox VIP codes</li>
