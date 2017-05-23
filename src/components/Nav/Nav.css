@@ -7,3 +7,8 @@
 .nav-item.logo img {
   max-height: none;
 }
+
+.nav{
+  box-shadow: 0 4px 10px -10px rgba(0,0,0,0.6);
+}
+    

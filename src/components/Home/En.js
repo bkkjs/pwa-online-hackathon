@@ -50,7 +50,7 @@ const Home = () =>
           <p>
             We have alot of prize such as Google Pixel, Google Chrome book, Google chrome cast but too long to list here. Please follow this <Link to="/prizes">link</Link>.
           </p>
-          <p className="register-button"><a className="button is-warning is-focused is-large">Register Soon</a></p>
+          <p className="register-button"><a className="button is-warning is-focused is-large">Register Soon !!</a></p>
         </div>
       </div>
     </section>

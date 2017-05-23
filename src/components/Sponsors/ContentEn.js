@@ -12,7 +12,6 @@ import './Sponsors.css';
 
 const SponsorsContent = () =>
 (
-  <section className="section">
     <div className="container">
       <div className="content sponsor-header">
         <h2 className="title is-3">Sponsors</h2>
@@ -34,7 +33,6 @@ const SponsorsContent = () =>
         </div>
       </div>
     </div>
-  </section>
 );
 
 export default SponsorsContent;
