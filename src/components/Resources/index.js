@@ -19,7 +19,7 @@ const Resources = () =>
     <section className="section">
       <div className="container">
         <div className="content">
-          <h1 className="title is-4">Video</h1>
+          <h1 className="title is-4">Video</h1><br/>
           <h1 className="title is-4">Blog post</h1>
         </div>
       </div>

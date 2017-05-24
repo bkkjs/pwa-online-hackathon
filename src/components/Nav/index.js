@@ -49,7 +49,7 @@ const Nav = (props) =>
         <Route path={/^\/(?!en)/} component={
           () =>
             <Link to="/en" className="nav-item">
-              ENG
+              Eng
             </Link>
         }/>
       </div>
