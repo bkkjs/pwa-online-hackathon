@@ -4,13 +4,13 @@ import './Prizes.css';
 const Prizes = () =>
 (
   <div>
-    <section className="hero is-primary">
+    <section className="hero is-primary prize-hero">
       <div className="hero-body">
         <div className="container">
-          <h1 className="title">
+          <h1 className="title is-1">
             &lt;Prizes /&gt;
           </h1>
-          <h2 className="subtitle">
+          <h2 className="subtitle is-4">
             ของรางวัล
           </h2>
         </div>

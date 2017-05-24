@@ -21,3 +21,7 @@
 .sponsor-container{
   margin-top: 50px !important;
 }
+
+.sponsors-hero{
+    background: url('/images/sponsor-header.jpg')
+}

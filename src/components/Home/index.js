@@ -5,13 +5,13 @@ import SponsorsContent from "../Sponsors/Content";
 const Home = () =>
 (
   <div>
-    <section className="hero is-primary">
+    <section className="hero is-primary home-hero">
       <div className="hero-body">
         <div className="container">
-          <h1 className="title">
+          <h1 className="title is-1">
             &lt;Welcome to PWA Online Hackathon /&gt;
           </h1>
-          <h2 className="subtitle">
+          <h2 className="subtitle is-4">
             The first online hackathon in Thailand
           </h2>
         </div>

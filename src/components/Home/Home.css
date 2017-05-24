@@ -5,6 +5,9 @@
   background: #52AE35;
   color: #FFF;
 }
+.title.is-1{
+  margin-top: 50px;
+}
 .title.is-5{
   font-weight: bold;
   color: #52AE35;
@@ -25,4 +28,7 @@
 .hero-body .title, .hero-body .subtitle {
   text-align: center;
   font-weight: bold;
+}
+.home-hero{
+  background: url('/images/home-header.jpg')
 }

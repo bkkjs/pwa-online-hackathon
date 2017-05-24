@@ -1,15 +1,15 @@
 import React from 'react';
-
+import './Rules.css';
 const Rules = () =>
 (
   <div>
-    <section className="hero is-primary">
+    <section className="hero is-primary hero-rules">
       <div className="hero-body">
         <div className="container">
-          <h1 className="title">
+          <h1 className="title is-1">
             &lt;Rules & FAQ /&gt;
           </h1>
-          <h2 className="subtitle">
+          <h2 className="subtitle is-4">
             กฎ กติกา และคำถามที่พบบ่อย
           </h2>
         </div>
