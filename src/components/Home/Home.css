@@ -5,6 +5,13 @@
   background: #52AE35;
   color: #FFF;
 }
+.title.is-5{
+  font-weight: bold;
+  color: #52AE35;
+  margin-bottom: 2px !important;
+  padding: 5px;
+  border-bottom: 1px solid #363636;
+}
 .title.is-3{
   font-weight: bold;
 }

@@ -2,8 +2,6 @@ import React from 'react';
 import './Home.css';
 import { Link } from "react-router-dom";
 import SponsorsContent from "../Sponsors/ContentEn";
-import noServerIcon from "./no_server_icon.png";
-import staticIcon from "./static_icon.png";
 const Home = () =>
 (
   <div>
@@ -26,30 +24,17 @@ const Home = () =>
           <p>
             PWA Online Hackathon is a 48-hour hackathon. Since it is an online hackathon, participants can submit the code from anywhere. Just submit your code and win the prize!
           </p>
-          <h2 className="title is-4">Rules</h2>
-          <p>
-            <div className="columns">
-              <div className="column">
-              </div>
-              <div className="column">
-              </div>
-              <div className="column">
-                <img src={noServerIcon}/>
-              </div>
-              <div className="column">
-                <img src={staticIcon}/>
-              </div>
-              <div className="column">
-              </div>
-              <div className="column">
-              </div>
+          <div className="columns">
+            <div className="column">
+              <h2 className="title is-5">Rules</h2><br/>
+              There are numbers of rules but the most important one is that you must develop a web application that without backand API. You can read detailed rules <Link to="/en/rules">here</Link>.
             </div>
-            There are numbers of rules but the most important one is that you must develop a web application that without backand API. You can read detailed rules <Link to="/en/rules">here</Link>.
-          </p>
-          <h2 className="title is-4">Prizes</h2>
-          <p>
-            We have alot of prize such as Google Pixel, Google Chrome book, Google chrome cast but too long to list here. Please follow this <Link to="/prizes">link</Link>.
-          </p>
+            <div className="column">
+              <h2 className="title is-5">Prizes</h2>
+              We have alot of prize such as Google Pixel, Google Chrome book, Google chrome cast but too long to list here. Please follow this <Link to="/prizes">link</Link>.
+            </div>
+          </div>
+
           <p className="register-button"><a className="button is-warning is-focused is-large">Register Soon !!</a></p>
         </div>
       </div>

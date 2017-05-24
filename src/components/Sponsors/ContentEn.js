@@ -12,7 +12,7 @@ import './Sponsors.css';
 
 const SponsorsContent = () =>
 (
-    <div className="container">
+    <div className="container sponsor-container">
       <div className="content sponsor-header">
         <h2 className="title is-3">Sponsors</h2>
         <p>This hackathon couldn't happen without these following sponsors.</p>

@@ -18,7 +18,7 @@ const Rules = () =>
     <section className="section">
       <div className="container">
         <div className="content">
-          <h2 className="title is-4">Rules</h2>
+          <h2 className="title is-4">Rules</h2><br/>
           <ol>
             <li>A team must consist of 2-5 members</li>
             <li>We provide you 48 hours to build a web application. Any development before or after that is strictly prohibited.</li>
@@ -27,7 +27,7 @@ const Rules = () =>
             <li>There are conditions for eligible web application. Only eligible submissions will be included in judging process.</li>
           </ol>
           <hr />
-          <h2 className="title is-4">Conditions for eligible web application</h2>
+          <h2 className="title is-4">Conditions for eligible web application</h2><br/>
           <ul>
             <li>Writing own API is not allowed</li>
             <li>
@@ -45,7 +45,7 @@ const Rules = () =>
             <li>Submitted web application must be partially functional without internet access.</li>
           </ul>
           <hr />
-          <h2 className="title is-4">Firebase rules</h2>
+          <h2 className="title is-4">Firebase rules</h2><br/>
           
             We allow usage of Firebase services. But for Cloud Function for Firebase, we only allow following actions. 
           
@@ -57,14 +57,14 @@ const Rules = () =>
             <li>Sending email to users</li>
           </ul>
           <hr />
-          <h2 className="title is-4">Criteria</h2>
-          We judge your submission based on these criteria (Total 100 points)
+          <h2 className="title is-4">Criteria</h2><br/>
+          <strong>We judge your submission based on these criteria (Total 100 points)</strong>
           <ul>
             <li>Completeness of the web application</li>
             <li>Creativity</li>
             <li>Technologies used</li>
           </ul>
-          Bonus points
+          <strong>Bonus points</strong>
           <ul>
             <li>Able to score over 98 points in Lighthouse test.</li>
             <li>Enable push notification</li>
@@ -75,7 +75,7 @@ const Rules = () =>
             All submission be scored by our judging committee.
           </p>
           <hr />
-          <h2 className="title is-4">FAQs</h2>
+          <h2 className="title is-4">FAQs</h2><br/>
           <strong>Q: Can I use API other than listed?</strong>
           <p>A: If you want to use any API other than those listed above, please send us detail of the API. We will consider it in case-by-case basis. The condition is that the API must be public and free to use. Once approved, other team will be able to use the API as well.</p>
           <strong>Q: I am not currently in Thailand, can I join?</strong>
