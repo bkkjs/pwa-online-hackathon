@@ -29,7 +29,7 @@ const SponsorsContent = () =>
           <img src={LogoNextzy} alt="logo" />
           <img src={LogoPantip} alt="logo" />
           <img src={LogoThoth} alt="logo" />
-          <img src={LogoCleverse} alt="logo" />
+          <img src={LogoCleverse} style={{maxWidth: '130px'}} alt="logo" />
         </div>
       </div>
     </div>
