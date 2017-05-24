@@ -19,7 +19,8 @@ const Resources = () =>
     <section className="section">
       <div className="container">
         <div className="content">
-          <p>Coming Soon</p>
+          <h1 className="title is-4">Video</h1><br/>
+          <h1 className="title is-4">Blog post</h1>
         </div>
       </div>
     </section>
