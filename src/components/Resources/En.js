@@ -1,15 +1,16 @@
 import React from 'react';
+import './Resources.css';
 
 const Resources = () =>
 (
   <div>
-    <section className="hero is-primary">
+    <section className="hero is-primary resource-hero">
       <div className="hero-body">
         <div className="container">
-          <h1 className="title">
+          <h1 className="title is-1">
             &lt;Resources /&gt;
           </h1>
-          <h2 className="subtitle">
+          <h2 className="subtitle is-4">
             แหล่งความรู้ต่าง ๆ
           </h2>
         </div>

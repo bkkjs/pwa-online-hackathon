@@ -4,14 +4,14 @@ import SponsorsContent from './ContentEn';
 const Sponsors = () =>
 (
   <div>
-    <section className="hero is-primary">
+    <section className="hero is-primary sponsors-hero">
       <div className="hero-body">
         <div className="container">
-          <h1 className="title">
+          <h1 className="title is-1">
             &lt;Sponsors /&gt;
           </h1>
-          <h2 className="subtitle">
-            ผู้สนับสนุนใจดี
+          <h2 className="subtitle is-4">
+            Our lovely sponsors
           </h2>
         </div>
       </div>

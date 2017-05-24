@@ -4,13 +4,13 @@ import './Prizes.css';
 const Prizes = () =>
 (
   <div>
-    <section className="hero is-primary">
+    <section className="hero is-primary prize-hero">
       <div className="hero-body">
         <div className="container">
-          <h1 className="title">
+          <h1 className="title is-1">
             &lt;Prizes /&gt;
           </h1>
-          <h2 className="subtitle">
+          <h2 className="subtitle is-4">
             ของรางวัล
           </h2>
         </div>
@@ -22,7 +22,7 @@ const Prizes = () =>
           <p className="prize-header">การแข่งขัน PWA Online Hackathon ครั้งนี้แบ่งรางวัลออกเป็นทั้งหมด 4 รางวัล ดังนี้</p>
           <div className="columns">
             <div class="column">
-              <h2 className="title is-5 prize-title">รางวัลอันดับ 1</h2>
+              <h2 className="title is-4 prize-title">รางวัลอันดับ 1</h2>
               <ul>
                 <li>1 x Pixel Phone</li>
                 <li>Google Cloud Credit 5,000 USD</li>
@@ -31,7 +31,7 @@ const Prizes = () =>
               </ul>
             </div>
             <div class="column">
-              <h2 className="title is-5 prize-title">รางวัลรองอันดับ 1</h2>
+              <h2 className="title is-4 prize-title">รางวัลรองอันดับ 1</h2>
               <ul>
                 <li>1 x Chromebook</li>
                 <li>Google Cloud Credit 3,000 USD</li>
@@ -39,7 +39,7 @@ const Prizes = () =>
               </ul>
             </div>
             <div class="column">
-              <h2 className="title is-5 prize-title">รางวัลรองอันดับ 2</h2>
+              <h2 className="title is-4 prize-title">รางวัลรองอันดับ 2</h2>
               <ul>
                 <li>1 x Chromecast</li>
                 <li>Google Cloud Credit 2,000 USD</li>
@@ -47,7 +47,7 @@ const Prizes = () =>
               </ul>
             </div>
             <div class="column">
-              <h2 className="title is-5 prize-title">รางวัล Firebase ยอดเยี่ยม</h2>
+              <h2 className="title is-4 prize-title">รางวัล Firebase ยอดเยี่ยม</h2>
               <ul>
                 <li>Google Cloud Credit 1,000 USD</li>
                 <li>5x 1 month Joox VIP codes</li>

@@ -4,13 +4,13 @@ import SponsorsContent from './Content';
 const Sponsors = () =>
 (
   <div>
-    <section className="hero is-primary">
+    <section className="hero is-primary sponsors-hero">
       <div className="hero-body">
         <div className="container">
-          <h1 className="title">
+          <h1 className="title is-1">
             &lt;Sponsors /&gt;
           </h1>
-          <h2 className="subtitle">
+          <h2 className="subtitle is-4">
             ผู้สนับสนุนใจดี
           </h2>
         </div>

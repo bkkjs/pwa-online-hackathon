@@ -5,3 +5,6 @@
 .prize-header{
   text-align: center;
 }
+.prize-hero{
+  background: url('/images/prize-header.jpg')
+}

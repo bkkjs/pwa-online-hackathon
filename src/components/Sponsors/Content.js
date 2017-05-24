@@ -12,10 +12,10 @@ import './Sponsors.css';
 
 const SponsorsContent = () =>
 (
-  <section className="section">
-    <div className="container">
+    <div className="container sponsor-container">
       <div className="content sponsor-header">
         <h2 className="title is-3">Sponsors ผู้ใจดี</h2>
+        <p>งานนี้จะเกิดขึ้นไม่ได้เลยถ้าไม่มี Sponsor ผู้ใจดีเหล่านี้</p>
       </div>
       <div className="content has-text-centered">
         <div className="platinum-sponsors">
@@ -34,7 +34,6 @@ const SponsorsContent = () =>
         </div>
       </div>
     </div>
-  </section>
 );
 
 export default SponsorsContent;
