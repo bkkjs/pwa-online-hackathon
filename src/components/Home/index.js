@@ -12,8 +12,12 @@ const Home = () =>
             &lt;Welcome to PWA Online Hackathon /&gt;
           </h1>
           <h2 className="subtitle is-4">
-            We challenge you to make awesome PWA 48 hours
+            We challenge you to make awesome PWA with in 48 hours
           </h2>
+          <p></p>
+          <h1 className="title is-3">
+            23 มิถุนายน 2560 20:00 น. - 25 มิถุนายน 2560 20:00 น.
+          </h1>
         </div>
       </div>
     </section>
@@ -34,7 +38,7 @@ const Home = () =>
               ของรางวัลเยอะจัด มีทั้ง Google Pixel, Google Chrome book, Google chrome cast, รางวัลจาก Sponsor อย่าง Credit JOOX ฟรี หรือ เงินสดจาก Sellsuki ก็มา บอกตรงๆว่าพิมพ์ตรงนี้ไม่หมด กดไปดูที่<Link to="/prizes">หน้ารางวัล</Link>ได้เลย
             </div>
           </div>
-          <p className="register-button"><a className="button is-warning is-focused is-large">เปิดรับสมัคร เร็วๆนี้</a></p>
+          <p className="register-button"><a className="button is-warning is-focused is-large">เปิดรับสมัคร 1 มิถุนายน 2560</a></p>
         </div>
       </div>
     </section>

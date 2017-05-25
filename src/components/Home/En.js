@@ -12,8 +12,12 @@ const Home = () =>
             &lt;Welcome to PWA Online Hackathon /&gt;
           </h1>
           <h2 className="subtitle is-4">
-            We challenge you to make awesome PWA 48 hours
+            We challenge you to make awesome PWA with in 48 hours
           </h2>
+          <p></p>
+          <h1 className="title is-3">
+            23 June 2017 8:00 PM - 25 June 2017 8:00 PM
+          </h1>
         </div>
       </div>
     </section>
@@ -35,7 +39,7 @@ const Home = () =>
             </div>
           </div>
 
-          <p className="register-button"><a className="button is-warning is-focused is-large">Register Soon !!</a></p>
+          <p className="register-button"><a className="button is-warning is-focused is-large">Open Register 1 June 2017</a></p>
         </div>
       </div>
     </section>
