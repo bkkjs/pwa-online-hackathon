@@ -28,6 +28,7 @@ const Prizes = () =>
               <li><img src={gcpIcon} alt=""/> <br /> Google Cloud Credit 5,000 USD</li>
               <li><img src={jooxIcon} alt=""/> <br /> 5x 1 year Joox VIP codes</li>
               <li><img src={sellsukiIcon} alt=""/> <br /> 10,000 THB cash from Sellsuki</li>
+              <li>Winner hoodie 1 each</li>
             </ul>
             </div>
             <div className="column">
@@ -36,6 +37,7 @@ const Prizes = () =>
                 <li>1 x Chromebook</li>
                 <li><img src={gcpIcon} alt=""/> <br /> Google Cloud Credit 3,000 USD</li>
                 <li><img src={jooxIcon} alt=""/> <br /> 5x 1 month Joox VIP codes</li>
+                <li>Winner hoodie 1 each</li>
               </ul>
             </div>
             <div className="column">          
@@ -44,6 +46,7 @@ const Prizes = () =>
               <li>1 x Chromecast</li>
                 <li><img src={gcpIcon} alt=""/> <br /> Google Cloud Credit 2,000 USD</li>
                 <li><img src={jooxIcon} alt=""/> <br /> 5x 1 month Joox VIP codes</li>
+                <li>Winner hoodie 1 each</li>
               </ul>
             </div>
             <div className="column">
@@ -51,6 +54,7 @@ const Prizes = () =>
               <ul>
                 <li><img src={gcpIcon} alt=""/> <br /> Google Cloud Credit 1,000 USD</li>
                 <li><img src={jooxIcon} alt=""/> <br /> 5x 1 month Joox VIP codes</li>
+                <li>Winner hoodie 1 each</li>
               </ul>
             </div>
           </div>

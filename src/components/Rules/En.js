@@ -20,7 +20,7 @@ const Rules = () =>
         <div className="content">
           <h2 className="title is-4">Rules</h2><br/>
           <ol>
-            <li>A team must consist of 2-5 members</li>
+            <li>A team must consist of 1-5 members</li>
             <li>We provide you 48 hours to build a web application. Any development before or after that is strictly prohibited.</li>
             <li>During the 48-hour hackathon, every participant should constantly push his code to the GitHub.</li>
             <li>The final web application must be deployed on Firebase Hosting.</li>
