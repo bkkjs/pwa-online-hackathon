@@ -9,9 +9,6 @@ const Rules = () =>
           <h1 className="title is-1">
             &lt;Rules & FAQ /&gt;
           </h1>
-          <h2 className="subtitle is-4">
-            กฎ กติกา และคำถามที่พบบ่อย
-          </h2>
         </div>
       </div>
     </section>
@@ -31,14 +28,7 @@ const Rules = () =>
           <ul>
             <li>Writing own API is not allowed</li>
             <li>
-              Only usage of these public APIs are allowed.
-              <ul>
-                <li>Facebook API</li>
-                <li>Instagram API</li>
-                <li>Google API</li>
-                <li>Twitter API</li>
-                <li>GitHub API</li>
-              </ul>
+              Only usage of public and free APIs are allowed.
             </li>
             <li>All public frontend libraries are allowed</li>
             <li>Submitted web application must have manifest file (can be added to home screen) and service worker installed.</li>
