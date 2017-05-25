@@ -23,7 +23,7 @@ const Prizes = () =>
         <div className="content">
           <p className="prize-header">การแข่งขัน PWA Online Hackathon ครั้งนี้แบ่งรางวัลออกเป็นทั้งหมด 4 รางวัล ดังนี้</p>
           <div className="columns">
-            <div class="column">
+            <div className="column">
               <h2 className="title is-4 prize-title">รางวัลอันดับ 1</h2>
               <ul>
                 <li>1 x Pixel Phone</li>
@@ -32,7 +32,7 @@ const Prizes = () =>
                 <li><img src={sellsukiIcon} alt=""/> <br /> 10,000 THB cash from Sellsuki</li>
               </ul>
             </div>
-            <div class="column">
+            <div className="column">
               <h2 className="title is-4 prize-title">รางวัลรองอันดับ 1</h2>
               <ul>
                 <li>1 x Chromebook</li>
@@ -40,7 +40,7 @@ const Prizes = () =>
                 <li><img src={jooxIcon} alt=""/> <br /> 5x 1 month Joox VIP codes</li>
               </ul>
             </div>
-            <div class="column">
+            <div className="column">
               <h2 className="title is-4 prize-title">รางวัลรองอันดับ 2</h2>
               <ul>
                 <li>1 x Chromecast</li>
@@ -48,7 +48,7 @@ const Prizes = () =>
                 <li><img src={jooxIcon} alt=""/> <br /> 5x 1 month Joox VIP codes</li>
               </ul>
             </div>
-            <div class="column">
+            <div className="column">
               <h2 className="title is-4 prize-title">รางวัล Firebase ยอดเยี่ยม</h2>
               <ul>
                 <li><img src={gcpIcon} alt=""/> <br /> Google Cloud Credit 1,000 USD</li>

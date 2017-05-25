@@ -1,13 +1,21 @@
 {
-  "short_name": "create-react-pwa",
-  "name": "Create React PWApp",
+  "short_name": "PWA Hack",
+  "name": "PWA Online Hackathon",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "Icon-196.png",
       "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "Icon-196.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
+  "background_color": "#52ae35",
+  "theme_color": "#52ae35",
   "start_url": "./",
-  "display": "standalone"
+  "display": "standalone",
+  "gcm_sender_id": "482941778795"
 }

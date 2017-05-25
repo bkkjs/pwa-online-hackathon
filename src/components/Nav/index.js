@@ -9,11 +9,15 @@ const Nav = (props) =>
 (
   <nav className="nav">
     <div className="container">
-      <div className="nav-left">
+      <div className="nav-left is-hidden-desktop">
+        <div className="nav-item"><img src={logo} alt="PWA Online Hackathon logo" /> <h5 className="is-6">PWA Online Hackathon </h5></div>
+      </div>
+      <div className="nav-left is-hidden-mobile">
         <div className="nav-item">
           <div className="field is-grouped">
             <p className="control">
-              <a className="button is-warning" href="https://docs.google.com/forms/d/e/1FAIpQLSdRYNtdVVrS4231JNelqkD_YsaTCnMXqego2twVtGSk5eRk5g/viewform?usp=sf_link" target="_blank">
+              <a className="button is-warning" href="https://docs.google.com/forms/d/e/1FAIpQLSdRYNtdVVrS4231JNelqkD_YsaTCnMXqego2twVtGSk5eRk5g/viewform?usp=sf_link" target="_blank" rel="noopener"
+>
                 <span className="icon">
                   <i className="fa fa-trophy"></i>
                 </span>
@@ -21,7 +25,7 @@ const Nav = (props) =>
               </a>
             </p>
             <p className="control">
-              <a className="button" href="https://m.me/web.developer.th" target="_blank">
+              <a className="button" href="https://m.me/web.developer.th" target="_blank" rel="noopener">
                 <span className="icon">
                   <i className="fa fa-envelope"></i>
                 </span>
@@ -30,12 +34,12 @@ const Nav = (props) =>
             </p>
           </div>
         </div>
-        <a className="nav-item" href="https://github.com/bkkjs/pwa-online-hackathon" target="_blank">
+        <a className="nav-item" href="https://github.com/bkkjs/pwa-online-hackathon" target="_blank" rel="noopener">
           <span className="icon">
             <i className="fa fa-github"></i>
           </span>
         </a>
-        <a className="nav-item" href="https://www.facebook.com/web.developer.th" target="_blank">
+        <a className="nav-item" href="https://www.facebook.com/web.developer.th" target="_blank" rel="noopener">
           <span className="icon">
             <i className="fa fa-facebook"></i>
           </span>
@@ -53,12 +57,12 @@ const Nav = (props) =>
             </Link>
         }/>
       </div>
-      <div className="nav-center">
+      <div className="nav-center is-hidden-mobile">
         <Link to="/" className="nav-item logo">
           <img src={logo} alt="PWA Online Hackathon logo" />
         </Link>
       </div>
-      <span className="nav-toggle">
+      <span className="nav-toggle" onClick={() => { let toggle = document.querySelector(".nav-toggle"); let menu = document.querySelector(".nav-menu"); toggle.classList.toggle("is-active"); menu.classList.toggle("is-active"); }}>
         <span></span>
         <span></span>
         <span></span>

@@ -12,7 +12,7 @@ const Home = () =>
             &lt;Welcome to PWA Online Hackathon /&gt;
           </h1>
           <h2 className="subtitle is-4">
-            The first online hackathon in Thailand
+            We challenge you to make awesome PWA 48 hours
           </h2>
         </div>
       </div>

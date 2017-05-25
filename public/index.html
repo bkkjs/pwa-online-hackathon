@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <meta name="theme-color" content="#52ae35">
+    <meta property="fb:app_id" content="1016985471765599" />
+    <meta property="og:url" content="https://pwa.online.hackathon.in.th/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="PWA Online Hackathon | We challenge you to make awesome PWA" />
+    <meta property="og:description" content="เราท้าคุณ มาทำ PWA เจ๋งๆภายในเวลา 48 ชั่วโมง เรามีรางวัลมากมายรอคุณไว้แล้ว" />
+    <meta property="og:image" content="https://pwa.online.hackathon.in.th/images/og.png" />
+    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
     <!--
       Notice the use of %PUBLIC_URL% in the tag above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -17,6 +26,7 @@
     <title>PWA Online Hackathon</title>
   </head>
   <body>
+    <p id="noscriptmsg">JavaScript is disabled. To enable it follow <a href="http://enable-javascript.com/">this</a></p>
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -29,11 +39,22 @@
       To create a production bundle, use `npm run build`.
     -->
     <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/service-worker.js');
-        });
-      }
-    </script>
+      (function() {
+        document.getElementById('noscriptmsg').style.display = "none";
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/service-worker.js');
+          });
+        }
+      })()
+      var OneSignal = window.OneSignal || [];
+      OneSignal.push(["init", {
+        appId: "e04aeb44-c2eb-4306-beb6-e69113c43e90",
+        autoRegister: true,
+        notifyButton: {
+          enable: true 
+        }
+      }]);
+  </script>
   </body>
 </html>
