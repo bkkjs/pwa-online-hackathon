@@ -33,7 +33,7 @@ const Rules = () =>
           <ul>
             <li>เราไม่อนุญาตให้ ทำ Backend หรือ API เองเป็นอันขาด</li>
             <li>
-              แต่มันจะไม่สนุกเลยถ้าใช้ API ไม่ได้เลย เราจึงยอมให้ใช้ API ที่เป็น Public และ "ฟรีี" ได้ (API ที่เป็น Free plan นับเป็น ฟรีเหมือนกัน) 
+              แต่มันจะไม่สนุกเลยถ้าใช้ API ไม่ได้เลย เราจึงยอมให้ใช้ API ที่เป็น Public และ "ฟรี" ได้ (API ที่เป็น Free plan นับเป็น ฟรีเหมือนกัน) 
             </li>
             <li>Frontend Library ต่าง ๆ ที่เปิดเป็น public สามารถใช้งานได้ทั้งหมด</li>
             <li>Web Application จะต้องมี Web App manifest (สามารถ Add to home screen ได้สมบูรณ์) และ Service worker ติดตั้งอยู่</li>
