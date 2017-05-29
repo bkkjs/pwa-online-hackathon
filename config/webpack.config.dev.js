@@ -7,6 +7,7 @@ var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 var getClientEnvironment = require('./env');
+var PreloadWebpackPlugin = require('preload-webpack-plugin');
 var paths = require('./paths');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -179,6 +180,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
+    }),
+    new PreloadWebpackPlugin({
+      rel: 'preload',
+      as: 'script',
+      include: 'asyncChunks'
     }),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
