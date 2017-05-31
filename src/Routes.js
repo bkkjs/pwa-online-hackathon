@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   BrowserRouter as Router,
   Route
@@ -9,6 +10,8 @@ import Rules from './components/Rules';
 import Prizes from './components/Prizes';
 import Resources from './components/Resources';
 import Sponsors from './components/Sponsors';
+import Application from './components/Application';
+import RegisterTeamMember from './components/Application/RegisterTeamMember';
 
 import HomeEn from './components/Home/En';
 import RulesEn from './components/Rules/En';
@@ -34,7 +37,7 @@ class ScrollToTop extends React.Component {
 }
 const ScrollToTopWithRouter = withRouter(ScrollToTop);
 
-const App = () =>
+const App = ({ history }) =>
 (
   <Router>
     <ScrollToTopWithRouter>
@@ -45,6 +48,8 @@ const App = () =>
         <Route exact path="/prizes" component={Prizes}/>
         <Route exact path="/resources" component={Resources}/>
         <Route exact path="/sponsors" component={Sponsors}/>
+        <Route exact path="/apply" component={Application}/>
+        <Route exact path="/apply/:key" component={RegisterTeamMember}/>
         <Route exact path="/en" component={HomeEn}/>
         <Route exact path="/en/rules" component={RulesEn}/>
         <Route exact path="/en/prizes" component={PrizesEn}/>
@@ -55,5 +60,9 @@ const App = () =>
     </ScrollToTopWithRouter>
   </Router>
 );
+
+App.propTypes = {
+  history: PropTypes.object,
+}
 
 export default App;

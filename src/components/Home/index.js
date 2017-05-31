@@ -1,8 +1,11 @@
 import React from 'react';
 import './Home.css';
+import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import SponsorsContent from "../Sponsors/Content";
-const Home = () =>
+import { actions } from '../../redux/reducers/application';
+
+const Home = (props) =>
 (
   <div>
     <section className="hero is-primary home-hero">
@@ -38,7 +41,9 @@ const Home = () =>
               ของรางวัลเยอะจัด มีทั้ง Google Pixel, Google Chrome book, Google chrome cast, รางวัลจาก Sponsor อย่าง Credit JOOX ฟรี หรือ เงินสดจาก Sellsuki ก็มา บอกตรงๆว่าพิมพ์ตรงนี้ไม่หมด กดไปดูที่<Link to="/prizes">หน้ารางวัล</Link>ได้เลย
             </div>
           </div>
-          <p className="register-button"><a className="button is-warning is-focused is-large">เปิดรับสมัคร 1 มิถุนายน 2560</a></p>
+          <p className="register-button">
+            <Link className="button is-warning is-focused is-large" to="/">เปิดรับสมัคร 1 มิถุนายน 2560</Link>
+          </p>
         </div>
       </div>
     </section>
@@ -46,4 +51,6 @@ const Home = () =>
   </div>
 );
 
-export default Home;
+export default connect(null, {
+  loginWithGithub: actions.loginWithGithub
+})(Home);
