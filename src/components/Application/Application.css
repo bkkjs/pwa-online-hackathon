@@ -1,0 +1,62 @@
+.title.is-4{
+  font-weight: bold;
+  display: inline-block;
+  padding: 7px;
+  background: #52AE35;
+  color: #FFF;
+}
+.title.is-1{
+  margin-top: 50px;
+}
+.title.is-5{
+  font-weight: bold;
+  color: #52AE35;
+  margin-bottom: 2px !important;
+  padding: 5px;
+  border-bottom: 1px solid #363636;
+}
+.title.is-3{
+  font-weight: bold;
+}
+.content > p {
+  margin-bottom: 3em !important;
+}
+
+.register-button {
+  text-align: center;
+}
+.hero-body .title, .hero-body .subtitle {
+  text-align: center;
+  font-weight: bold;
+}
+.home-hero{
+  background: url('/images/home-header.jpg')
+}
+.login {
+  margin: 30px 0;
+}
+.profile {
+  border-radius: 50%;
+  max-width: 100px;
+  max-height: 100px;
+}
+.sub-text {
+  color: #aaa;
+  font-size: 14px;
+}
+div.control {
+  margin-bottom: 20px;
+}
+.wide-paragraph {
+  margin: 20px 0;
+}
+
+.wide-paragraph input {
+  font-size: 19px;
+}
+
+.wide-paragraph.small {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}

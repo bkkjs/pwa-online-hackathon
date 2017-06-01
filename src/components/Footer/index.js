@@ -7,7 +7,8 @@ const Footer = () =>
       <div className="content has-text-centered">
         <p>
           <strong>PWA Online Hackthon</strong> is organized by <a href="https://www.facebook.com/web.developer.th" rel="noopener"
- target="_blank">Web Developer Thailand</a>.
+ target="_blank">Web Developer Thailand</a>.<br /><br />
+          Built with 💛 using 🔥 Firebase
         </p>
         <p>
           <a className="icon" href="https://github.com/bkkjs/pwa-online-hackathon" rel="noopener"
