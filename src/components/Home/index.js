@@ -42,7 +42,7 @@ const Home = (props) =>
             </div>
           </div>
           <p className="register-button">
-            <Link className="button is-warning is-focused is-large" to="/">เปิดรับสมัคร 1 มิถุนายน 2560</Link>
+            <Link className="button is-warning is-focused is-large" to="/apply">สมัครเข้าร่วมกิจกรรม</Link>
           </p>
         </div>
       </div>

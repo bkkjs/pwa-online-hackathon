@@ -39,7 +39,7 @@ const Home = () =>
             </div>
           </div>
 
-          <p className="register-button"><a className="button is-warning is-focused is-large">Open Register 1 June 2017</a></p>
+          <p className="register-button"><Link className="button is-warning is-focused is-large" to="/apply">Register</Link></p>
         </div>
       </div>
     </section>
