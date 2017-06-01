@@ -10,7 +10,6 @@ const IndividualInfo = (props) => (
     <p className="has-text-centered">
       <img className="profile" alt="profile" src={props.githubUser.photoURL} />
     </p>
-    <Field required readOnly component={inputField} name="displayName" label="GitHub Display Name" />
     <Field required readOnly  component={inputField} type="email" name="email" label="Email Address" />
     <Field required component={inputField} name="firstName" label="First Name" />
     <Field required component={inputField} name="lastName" label="Last Name" />
@@ -69,7 +68,6 @@ export default connect((state) => {
   const initialValues = loggedIn && application ? {
       ...application,
       email: state.application.githubUser.email,
-      displayName: state.application.githubUser.displayName,
       photoURL: state.application.githubUser.photoURL,
       firstName: null,
       lastName: null,

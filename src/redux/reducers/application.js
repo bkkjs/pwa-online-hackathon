@@ -24,6 +24,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         loginPending: true,
       };
+    case LOGIN_WITH_GITHUB.REJECTED:
+      return {
+        ...state,
+        loginPending: false,
+      }
     case LOGIN_WITH_GITHUB.RESOLVED:
       window.scrollTo(0, 0);
       return {

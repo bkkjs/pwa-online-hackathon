@@ -92,7 +92,7 @@ export const SubmittedPage = ({ application }) => {
 export const validate = values => {
   const errors = {};
   const requiredFields = ['teamName','teamCount','githubRepoUrl','firebaseProjectId','shippingAddress',
-  'displayName','email','firstName','lastName','mobile','tshirtSize'];
+  'email','firstName','lastName','mobile','tshirtSize'];
   if (values.githubRepoUrl && !values.githubRepoUrl.match(/^(https?:\/\/)?github.com\/[\w-_]+\/[\w-_]+$/g)) {
     errors.githubRepoUrl = 'Invalid GitHub\'s repository URL'
   }
