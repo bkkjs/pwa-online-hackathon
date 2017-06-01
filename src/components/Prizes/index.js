@@ -3,6 +3,8 @@ import './Prizes.css';
 import gcpIcon from './googlecloudplatform-logo-1-1024x265.png';
 import jooxIcon from './Joox_icon.png';
 import sellsukiIcon from './sellsuki.png';
+import skootarIcon from './skootar.png';
+import wongnaiIcon from './wongnai.png';
 const Prizes = () =>
 (
   <div>
@@ -30,6 +32,8 @@ const Prizes = () =>
                 <li><img src={gcpIcon} alt=""/> <br />Google Cloud Credit 5,000 USD</li>
                 <li><img src={jooxIcon} alt=""/> <br /> 5 x 1 year Joox VIP codes</li>
                 <li><img src={sellsukiIcon} alt=""/> <br /> 10,000 THB cash from Sellsuki</li>
+                <li><img src={skootarIcon} alt=""/> <br /> 5,000 THB Skootar credit</li>
+                <li><img src={wongnaiIcon} alt=""/> <br /> 1,000 THB LINEMAN credit</li>
                 <li>Winner hoodie คนละ 1 ตัว</li>
               </ul>
             </div>
@@ -39,6 +43,8 @@ const Prizes = () =>
                 <li>1 x Chromebook</li>
                 <li><img src={gcpIcon} alt=""/> <br /> Google Cloud Credit 3,000 USD</li>
                 <li><img src={jooxIcon} alt=""/> <br /> 5x 1 month Joox VIP codes</li>
+                <li><img src={skootarIcon} alt=""/> <br /> 2,000 THB Skootar credit</li>
+                <li><img src={wongnaiIcon} alt=""/> <br /> 500 THB LINEMAN credit</li>
                 <li>Winner hoodie คนละ 1 ตัว</li>
               </ul>
             </div>
@@ -48,6 +54,8 @@ const Prizes = () =>
                 <li>1 x Chromecast</li>
                 <li><img src={gcpIcon} alt=""/> <br /> Google Cloud Credit 2,000 USD</li>
                 <li><img src={jooxIcon} alt=""/> <br /> 5x 1 month Joox VIP codes</li>
+                <li><img src={skootarIcon} alt=""/> <br /> 1,000 THB Skootar credit</li>
+                <li><img src={wongnaiIcon} alt=""/> <br /> 500 THB LINEMAN credit</li>
                 <li>Winner hoodie คนละ 1 ตัว</li>
               </ul>
             </div>
@@ -56,6 +64,8 @@ const Prizes = () =>
               <ul>
                 <li><img src={gcpIcon} alt=""/> <br /> Google Cloud Credit 1,000 USD</li>
                 <li><img src={jooxIcon} alt=""/> <br /> 5x 1 month Joox VIP codes</li>
+                <li><img src={skootarIcon} alt=""/> <br /> 1,000 THB Skootar credit</li>
+                <li><img src={wongnaiIcon} alt=""/> <br /> 500 THB LINEMAN credit</li>
                 <li>Winner hoodie คนละ 1 ตัว</li>
               </ul>
             </div>

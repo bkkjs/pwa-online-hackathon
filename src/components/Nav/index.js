@@ -16,13 +16,6 @@ const Nav = (props) =>
         <div className="nav-item">
           <div className="field is-grouped">
             <p className="control">
-              <a className="button is-warning" href="https://docs.google.com/forms/d/e/1FAIpQLSdRYNtdVVrS4231JNelqkD_YsaTCnMXqego2twVtGSk5eRk5g/viewform?usp=sf_link" target="_blank" rel="noopener"
->
-                <span className="icon">
-                  <i className="fa fa-trophy"></i>
-                </span>
-                <span>Become a Sponsor</span>
-              </a>
             </p>
             <p className="control">
               <a className="button" href="https://m.me/web.developer.th" target="_blank" rel="noopener">
