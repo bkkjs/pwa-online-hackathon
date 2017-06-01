@@ -50,7 +50,7 @@ const reducer = (state = initialState, action) => {
       const application = action.data;
       const uid = state.githubUser.uid;
       const submitted = (uid === application.uid) ||
-        Object.keys(application.members || {}).map((key) => application.members[key].uid === uid).length > 0;
+        Object.keys(application.members || {}).filter((key) => application.members[key].uid === uid).length > 0;
       return {
         ...state,
         application,
