@@ -11,7 +11,6 @@ const initialState = {
   submitPending: false,
   submitted: false,
   githubUser: {},
-  application: {},
 };
 
 // initialState.application = { teamCount: 1, key: '-KlUN_IcXSO5CmooBM_Y', teamName: 'panj', shippingAddress: 'a', githubRepoUrl: 'gituhb', firebaseProjectId: 'firebase' };

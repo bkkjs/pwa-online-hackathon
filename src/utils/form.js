@@ -1,4 +1,5 @@
 import React from 'react';
+export const intParser = value => value === undefined ? undefined : parseInt(value, 10);
 
 export const inputField = ({children, readOnly, required, input, label, type, className, placeholder, meta: {touched, error, warning}}) => {
   return (
@@ -9,7 +10,11 @@ export const inputField = ({children, readOnly, required, input, label, type, cl
       </label>
       {children}
       <div className="control">
-        <input {...input} className={`${className || 'input'} ${(touched && (error || warning)) ? 'is-danger' : ''} ${(readOnly || (touched && !error && !warning))  ? 'is-success' : ''}`} type={type || 'text'} placeholder={placeholder} readOnly={readOnly} />
+        <input {...input}
+          className={`${className || 'input'} ${(touched && (error || warning)) ? 'is-danger' : ''} ${(readOnly || (touched && !error && !warning))  ? 'is-success' : ''}`}
+          type={type || 'text'}
+          placeholder={placeholder}
+          readOnly={readOnly} />
         <p className="help is-danger">
           {touched && error}
         </p>

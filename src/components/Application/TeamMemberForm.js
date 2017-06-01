@@ -2,7 +2,7 @@ import React from 'react';
 import './Application.css';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from "redux-form";
-import { inputField, selectField, textareaField } from '../../utils/form';
+import { inputField, selectField, textareaField, intParser } from '../../utils/form';
 import { validate } from './sharedUtils';
 
 const IndividualInfo = (props) => (
@@ -41,7 +41,7 @@ const TeamMemberForm = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <Field readOnly required component={inputField} name="teamName" label="Team Name" />
-      <Field readOnly required component={inputField} name="teamCount" label="Number of Team Member" type="number" />
+      <Field readOnly required component={inputField} name="teamCount" label="Number of Team Member" type="number" parse={intParser} />
       <Field readOnly required component={inputField} name="githubRepoUrl" label="GitHub Repository URL" placeholder="https://github.com/user/repo">
         <p className="sub-text">Please create a blank public repository to use in this hackathon and fill in the link below. Click <a href="https://github.com/new" target="_blank">here</a> to create one.</p>
       </Field>
