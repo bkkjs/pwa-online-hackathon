@@ -12,6 +12,7 @@ import LogoFirebase from './logos/firebase.png';
 import LogoGoogleDeveloper from './logos/google-developer.png';
 import LogoWongnai from './logos/wongnai.png';
 import LogoSkootar from './logos/skootar.png';
+import LogoPapakuma from './logos/logo_papakuma_bgwhi.png'; 
 import './Sponsors.css';
 
 const SponsorsContent = () =>
@@ -40,6 +41,8 @@ const SponsorsContent = () =>
           <a href="http://cleverse.com" target="_blank"><img src={LogoCleverse} style={{maxWidth: '130px'}} alt="logo" /></a>
           <a href="http://wongnai.com" target="_blank"><img src={LogoWongnai} style={{maxWidth: '130px'}} alt="logo" /></a>
           <a href="https://www.skootar.com" target="_blank"><img src={LogoSkootar} style={{maxWidth: '130px'}} alt="logo" /></a>
+          <a href="http://www.papakuma.com" target="_blank"><img src={LogoPapakuma} style={{maxWidth: '130px'}} alt="logo" /></a>
+          
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import jooxIcon from './Joox_icon.png';
 import sellsukiIcon from './sellsuki.png';
 import skootarIcon from './skootar.png';
 import wongnaiIcon from './wongnai.png';
+import papakumaIcon from './logo_papakuma_bgwhi.png';
 const Prizes = () =>
 (
   <div>
@@ -35,6 +36,7 @@ const Prizes = () =>
                 <li><img src={skootarIcon} alt=""/> <br /> 5,000 THB Skootar credit</li>
                 <li><img src={wongnaiIcon} alt=""/> <br /> 1,000 THB LINEMAN credit</li>
                 <li>Winner hoodie คนละ 1 ตัว</li>
+                <li><img src={papakumaIcon} alt=""/> Winner cap จาก Papakuma คนละ 1 ใบ</li>
               </ul>
             </div>
             <div className="column">
@@ -46,6 +48,7 @@ const Prizes = () =>
                 <li><img src={skootarIcon} alt=""/> <br /> 2,000 THB Skootar credit</li>
                 <li><img src={wongnaiIcon} alt=""/> <br /> 500 THB LINEMAN credit</li>
                 <li>Winner hoodie คนละ 1 ตัว</li>
+                <li><img src={papakumaIcon} alt=""/> Winner cap จาก Papakuma คนละ 1 ใบ</li>
               </ul>
             </div>
             <div className="column">
@@ -57,6 +60,7 @@ const Prizes = () =>
                 <li><img src={skootarIcon} alt=""/> <br /> 1,000 THB Skootar credit</li>
                 <li><img src={wongnaiIcon} alt=""/> <br /> 500 THB LINEMAN credit</li>
                 <li>Winner hoodie คนละ 1 ตัว</li>
+                <li><img src={papakumaIcon} alt=""/> Winner cap จาก Papakuma คนละ 1 ใบ</li>
               </ul>
             </div>
             <div className="column">
@@ -67,6 +71,7 @@ const Prizes = () =>
                 <li><img src={skootarIcon} alt=""/> <br /> 1,000 THB Skootar credit</li>
                 <li><img src={wongnaiIcon} alt=""/> <br /> 500 THB LINEMAN credit</li>
                 <li>Winner hoodie คนละ 1 ตัว</li>
+                <li><img src={papakumaIcon} alt=""/> Winner cap จาก Papakuma คนละ 1 ใบ</li>
               </ul>
             </div>
           </div>
