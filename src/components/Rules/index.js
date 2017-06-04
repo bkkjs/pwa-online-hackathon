@@ -41,7 +41,7 @@ const Rules = () =>
           </ul>
           <hr/>
           <h2 className="title is-4">กฎของ Firebase</h2><br/>
-          งานนี้เรามี Sponsor เป็น Firebase เพราะฉะนั้น เราอณุญาติให้ ทุกคนสามารถใช้ Service ของ Firebase ได้ แต่สำหรับ Cloud function for Firebase สามารถใช้ได้ตามนี้เท่านั้น
+          งานนี้เรามี Sponsor เป็น Firebase เพราะฉะนั้น เราอนุญาตให้ ทุกคนสามารถใช้ Service ของ Firebase ได้ แต่สำหรับ Cloud function for Firebase สามารถใช้ได้ตามนี้เท่านั้น
           <ul>
             <li>แก้ไขข้อมูลเดิมใน Firebase Real-time Database </li>
             <li>ปรับแต่งรูปภาพที่อยู่ใน Firebase Storage</li>
