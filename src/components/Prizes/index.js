@@ -6,6 +6,7 @@ import sellsukiIcon from './sellsuki.png';
 import skootarIcon from './skootar.png';
 import wongnaiIcon from './wongnai.png';
 import papakumaIcon from './logo_papakuma_bgwhi.png';
+import giftPic from './gift.jpg';
 const Prizes = () =>
 (
   <div>
@@ -78,6 +79,7 @@ const Prizes = () =>
           <div className="columns">
             <div className="column has-text-centered">
               <h2 className="title is-4 prize-title">200 คนแรกที่ Submit PWA</h2><br />
+              <img src={giftPic} alt=""/>
               สำหรับ <strong>200</strong> คนแรกเราเตรียมของเล็กๆน้อยๆไว้ให้ เป็น <strong>เสื้อ PWA online hackathon, Sticker และของเล็กๆ น้อยอื่นๆ</strong> 
             </div>
           </div>
