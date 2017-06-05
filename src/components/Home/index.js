@@ -21,6 +21,9 @@ const Home = (props) =>
           <h1 className="title is-3">
             23 มิถุนายน 2560 20:00 น. - 25 มิถุนายน 2560 20:00 น.
           </h1>
+          <p className="register-button">
+            <Link className="button is-warning is-focused is-large" to="/apply">สมัครเข้าร่วมกิจกรรม</Link>
+          </p>
         </div>
       </div>
     </section>
