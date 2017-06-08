@@ -19,7 +19,7 @@ const Home = () =>
             23 June 2017 8:00 PM - 25 June 2017 8:00 PM
           </h1>
           <p className="register-button">
-            <Link className="button is-warning is-focused is-large" to="/apply">สมัครเข้าร่วมกิจกรรม</Link>
+            <Link className="button is-warning is-focused is-large" to="/apply">Register</Link>
           </p>
         </div>
       </div>

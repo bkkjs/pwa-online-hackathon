@@ -62,7 +62,7 @@ const Prizes = () =>
           <div className="columns">
             <div className="column has-text-centered">
               <h2 className="title is-4 prize-title">First 200 who submit PWA</h2><br />
-              <img src={giftPic} alt=""/>
+              <img src={giftPic} style={{maxWidth: '400px'}} alt=""/><br />
               For first <strong>200</strong> We prepare some swag such as <strong>PWA online hackathon T-shirt, Sticker and some small stuff</strong> for you. 
             </div>
           </div>
