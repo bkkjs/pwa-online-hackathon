@@ -5,6 +5,8 @@ import jooxIcon from './Joox_icon.png';
 import sellsukiIcon from './sellsuki.png';
 import skootarIcon from './skootar.png';
 import wongnaiIcon from './wongnai.png';
+import papakumaIcon from './logo_papakuma_bgwhi.png';
+import giftPic from './gift.jpg';
 const Prizes = () =>
 (
   <div>
@@ -35,6 +37,7 @@ const Prizes = () =>
                 <li><img src={skootarIcon} alt=""/> <br /> 5,000 THB Skootar credit</li>
                 <li><img src={wongnaiIcon} alt=""/> <br /> 1,000 THB LINEMAN credit</li>
                 <li>Winner hoodie คนละ 1 ตัว</li>
+                <li><img src={papakumaIcon} alt=""/> Winner cap จาก Papakuma คนละ 1 ใบ</li>
               </ul>
             </div>
             <div className="column">
@@ -46,6 +49,7 @@ const Prizes = () =>
                 <li><img src={skootarIcon} alt=""/> <br /> 2,000 THB Skootar credit</li>
                 <li><img src={wongnaiIcon} alt=""/> <br /> 500 THB LINEMAN credit</li>
                 <li>Winner hoodie คนละ 1 ตัว</li>
+                <li><img src={papakumaIcon} alt=""/> Winner cap จาก Papakuma คนละ 1 ใบ</li>
               </ul>
             </div>
             <div className="column">
@@ -57,6 +61,7 @@ const Prizes = () =>
                 <li><img src={skootarIcon} alt=""/> <br /> 1,000 THB Skootar credit</li>
                 <li><img src={wongnaiIcon} alt=""/> <br /> 500 THB LINEMAN credit</li>
                 <li>Winner hoodie คนละ 1 ตัว</li>
+                <li><img src={papakumaIcon} alt=""/> Winner cap จาก Papakuma คนละ 1 ใบ</li>
               </ul>
             </div>
             <div className="column">
@@ -67,12 +72,14 @@ const Prizes = () =>
                 <li><img src={skootarIcon} alt=""/> <br /> 1,000 THB Skootar credit</li>
                 <li><img src={wongnaiIcon} alt=""/> <br /> 500 THB LINEMAN credit</li>
                 <li>Winner hoodie คนละ 1 ตัว</li>
+                <li><img src={papakumaIcon} alt=""/> Winner cap จาก Papakuma คนละ 1 ใบ</li>
               </ul>
             </div>
           </div>
           <div className="columns">
             <div className="column has-text-centered">
               <h2 className="title is-4 prize-title">200 คนแรกที่ Submit PWA</h2><br />
+              <img src={giftPic} style={{maxWidth: '400px'}} alt=""/><br />
               สำหรับ <strong>200</strong> คนแรกเราเตรียมของเล็กๆน้อยๆไว้ให้ เป็น <strong>เสื้อ PWA online hackathon, Sticker และของเล็กๆ น้อยอื่นๆ</strong> 
             </div>
           </div>

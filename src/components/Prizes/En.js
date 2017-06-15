@@ -2,6 +2,7 @@ import React from 'react';
 import gcpIcon from './googlecloudplatform-logo-1-1024x265.png';
 import jooxIcon from './Joox_icon.png';
 import sellsukiIcon from './sellsuki.png';
+import giftPic from './gift.jpg';
 const Prizes = () =>
 (
   <div>
@@ -61,6 +62,7 @@ const Prizes = () =>
           <div className="columns">
             <div className="column has-text-centered">
               <h2 className="title is-4 prize-title">First 200 who submit PWA</h2><br />
+              <img src={giftPic} style={{maxWidth: '400px'}} alt=""/><br />
               For first <strong>200</strong> We prepare some swag such as <strong>PWA online hackathon T-shirt, Sticker and some small stuff</strong> for you. 
             </div>
           </div>

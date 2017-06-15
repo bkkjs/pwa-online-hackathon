@@ -41,6 +41,7 @@
     "promise": "7.1.1",
     "react-code-splitting": "^1.1.1",
     "react-dev-utils": "^0.3.0",
+    "react-embedly": "^0.3.5",
     "recursive-readdir": "2.1.0",
     "rimraf": "2.5.4",
     "sass-loader": "^6.0.3",

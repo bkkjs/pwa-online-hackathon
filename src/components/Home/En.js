@@ -18,6 +18,9 @@ const Home = () =>
           <h1 className="title is-3">
             23 June 2017 8:00 PM - 25 June 2017 8:00 PM
           </h1>
+          <p className="register-button">
+            <Link className="button is-warning is-focused is-large" to="/apply">Register</Link>
+          </p>
         </div>
       </div>
     </section>
