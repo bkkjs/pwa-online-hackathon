@@ -2,6 +2,7 @@ import { constantCreator } from '../constantCreator';
 const constant = constantCreator('application');
 const LOGIN_WITH_GITHUB = constant('LOGIN_WITH_GITHUB', true);
 const SUBMIT_APPLICATION = constant('SUBMIT_APPLICATION', true);
+const SUBMIT_TEAM_MEMBER = constant('SUBMIT_TEAM_MEMBER', true);
 const GET_APPLICATION = constant('GET_APPLICATION', true)
 import * as firebase from 'firebase';
 
@@ -50,6 +51,18 @@ const reducer = (state = initialState, action) => {
         submitted: true,
         application: action.data,
       };
+    case SUBMIT_TEAM_MEMBER.PENDING:
+      return {
+        ...state,
+        submitPending: true,
+      };
+    case SUBMIT_TEAM_MEMBER.RESOLVED:
+      window.scrollTo(0, 0);
+      return {
+        ...state,
+        submitPending: false,
+        submitted: true,
+      };
     case GET_APPLICATION.RESOLVED:
       window.scrollTo(0, 0);
       const application = action.data;
@@ -94,7 +107,7 @@ export const actions = {
     .set({ ...data, timestamp: firebase.database.ServerValue.TIMESTAMP })
     .then(() => ({ data }));
     return {
-      type: SUBMIT_APPLICATION,
+      type: SUBMIT_TEAM_MEMBER,
       promise,
     };
   },
