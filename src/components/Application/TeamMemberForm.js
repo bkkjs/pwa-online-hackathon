@@ -74,6 +74,7 @@ export default connect((state) => {
       tshirtSize: null,
       mobile: null,
       optIn: null,
+      uid: state.application.githubUser.uid,
     } : null;
   return {
     githubUser: state.application.githubUser,

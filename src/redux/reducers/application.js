@@ -120,8 +120,8 @@ export const actions = {
   },
   submitTeamMember: (data) => {
     const ref = firebase.database().ref(`applications/${data.key}/members`).push();
-    const { firstName, lastName, tshirtSize, mobile, optIn, photoURL, email } = data;
-    const cleanedData = { firstName, lastName, tshirtSize, mobile, optIn, photoURL, email };
+    const { firstName, lastName, tshirtSize, mobile, optIn, photoURL, email, uid } = data;
+    const cleanedData = { firstName, lastName, tshirtSize, mobile, optIn, photoURL, email, uid };
     const promise = ref
     .set({ ...cleanedData, timestamp: firebase.database.ServerValue.TIMESTAMP })
     .then(() => ({ data }));
