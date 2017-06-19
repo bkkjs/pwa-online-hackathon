@@ -120,8 +120,10 @@ export const actions = {
   },
   submitTeamMember: (data) => {
     const ref = firebase.database().ref(`applications/${data.key}/members`).push();
+    const { firstName, lastName, tshirtSize, mobile, optIn, photoURL, email } = data;
+    const cleanedData = { firstName, lastName, tshirtSize, mobile, optIn, photoURL, email };
     const promise = ref
-    .set({ ...data, timestamp: firebase.database.ServerValue.TIMESTAMP })
+    .set({ ...cleanedData, timestamp: firebase.database.ServerValue.TIMESTAMP })
     .then(() => ({ data }));
     return {
       type: SUBMIT_TEAM_MEMBER,
