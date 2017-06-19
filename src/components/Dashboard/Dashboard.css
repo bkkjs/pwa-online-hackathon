@@ -43,3 +43,8 @@ td span.fa {
   background: #ffdd57;
   color: rgba(0,0,0,0.7);
 }
+
+.scrollable {
+  width: 100%;
+  overflow-x: scroll;
+}

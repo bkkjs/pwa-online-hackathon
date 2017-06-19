@@ -136,39 +136,51 @@ class Dashboard extends React.Component {
             </div>
           </div>
           <h2 className="title is-5">Leaderboard</h2><br />
+          <p>
+            <span className="fa fa-wifi" /> = Offline support<br />
+            <span className="fa fa-home" /> = Manifest installed
+          </p>
           {
             publicApplications.length > 0 &&
-            <table className="table leaderboard">
-              <thead>
-                <tr>
-                  <th>Rank</th>
-                  <th>Team Name</th>
-                  <th>Last Commit</th>
-                  <th>Last Deployed</th>
-                  <th>Submission Form</th>
-                  <th>Last Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {
-                  publicApplications.map((application) => {
-                    const { committedAt, deployedAt, formSubmittedAt, rank, teamCount, firebaseProjectId, githubRepoUrl, teamName } = application;
-                    const lastActionAt = getLatest(committedAt, deployedAt, formSubmittedAt);
-                    const isDone = !!(committedAt && deployedAt && formSubmittedAt);
-                    return (
-                      <tr key={firebaseProjectId} className={isDone ? 'done' : ''}>
-                        <td>{ rank }</td>
-                        <td>{ teamName } ({ teamCount } <span className="fa fa-user" />)</td>
-                        {formatTimeCell(committedAt, githubRepoUrl)}
-                        {formatTimeCell(deployedAt, `https://${firebaseProjectId}.firebaseapp.com`)}
-                        {formatTimeCell(formSubmittedAt)}
-                        {formatTimeCell(lastActionAt)}
-                      </tr>
-                    );
-                  })
-                }
-              </tbody>
-            </table>
+            <div className="scrollable">
+              <table className="table leaderboard">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Team Name</th>
+                    <th>Last Commit</th>
+                    <th>Last Deployed</th>
+                    <th>Submission Form</th>
+                    <th>Last Action</th>
+                    <th>Features</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    publicApplications.map((application) => {
+                      const {
+                        committedAt, deployedAt, formSubmittedAt, rank,
+                        teamCount, firebaseProjectId, githubRepoUrl, teamName,
+                        lighthouseScore, offlinemanifestSupported, manifestSupported
+                      } = application;
+                      const lastActionAt = getLatest(committedAt, deployedAt, formSubmittedAt);
+                      const isDone = !!(committedAt && deployedAt && formSubmittedAt);
+                      return (
+                        <tr key={firebaseProjectId} className={isDone ? 'done' : ''}>
+                          <td>{ rank }</td>
+                          <td>{ teamName } ({ teamCount } <span className="fa fa-user" />)</td>
+                          {formatTimeCell(committedAt, githubRepoUrl)}
+                          {formatTimeCell(deployedAt, `https://${firebaseProjectId}.firebaseapp.com`)}
+                          {formatTimeCell(formSubmittedAt)}
+                          {formatTimeCell(lastActionAt)}
+                          <td>{lighthouseScore} { offlinemanifestSupported && <span className="fa fa-wifi" /> } { manifestSupported && <span className="fa fa-home" /> }</td>
+                        </tr>
+                      );
+                    })
+                  }
+                </tbody>
+              </table>
+            </div>
           }
         </div>
       </div>
