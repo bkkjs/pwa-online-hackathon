@@ -4,6 +4,7 @@ import moment from 'moment';
 import { connect } from 'react-redux';
 import { formatTimeCell, getLatest } from '../../utils/time';
 import { Link } from "react-router-dom";
+import { actions } from '../../redux/reducers/application';
 
 const targetDate = moment('2017-06-23 20:00:00+07:00');
 const endDate = moment('2017-06-25 20:00:00+07:00');
@@ -58,7 +59,7 @@ class Dashboard extends React.Component {
 
   }
   render() {
-    const { user, publicApplications, announcement } = this.props;
+    const { user, publicApplications, announcement, loggedIn } = this.props;
     return (
     <section className="section">
       <div className="container">
@@ -66,14 +67,21 @@ class Dashboard extends React.Component {
           <h1 className="title is-4">Dashboard</h1><br />
           <div className="columns">
             {
-              !user &&
+              !loggedIn &&
+              <div className="column">
+                <h2 className="title is-5">Application Status</h2><br />
+                <p className="register-button"><a onClick={this.props.loginWithGithub} className="button is-warning is-focused is-large login"><i className="fa fa-github" />&nbsp;&nbsp;Login with GitHub</a></p>
+              </div>
+            }
+            {
+              loggedIn && !user &&
               <div className="column">
                 <h2 className="title is-5">Application Status</h2><br />
                 <p>You do not have active application, please register <Link to="/apply">here</Link>.</p>
               </div>
             }
             {
-              user &&
+              loggedIn && user &&
               <div className="column">
                 <h2 className="title is-5">Application Status</h2><br />
                 <p><strong>Team Name:</strong>&nbsp;
@@ -144,7 +152,7 @@ class Dashboard extends React.Component {
             </div>
           </div>
           {
-            false &&
+            this.props.showLeaderboard &&
             <div>
               <h2 className="title is-5">Leaderboard</h2><br />
               <p>
@@ -206,4 +214,8 @@ export default connect((state) => ({
   announcement: state.dashboard.announcement,
   user: state.dashboard.user,
   publicApplications: state.dashboard.publicApplications,
-}))(Dashboard);
+  loggedIn: state.application.loggedIn,
+  showLeaderboard: state.dashboard.showLeaderboard,
+}), {
+  loginWithGithub: actions.loginWithGithub
+})(Dashboard);

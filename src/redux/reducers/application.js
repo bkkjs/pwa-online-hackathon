@@ -26,8 +26,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loginPending: false,
-        loggedIn: true,
-        githubUser: action.data,
+        loggedIn: !!action.data,
+        githubUser: action.data || {},
       }
     case LOGGED_OUT:
       return {

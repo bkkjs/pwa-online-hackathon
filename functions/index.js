@@ -37,5 +37,10 @@ exports.applicationChanged = functions.database.ref('/applications/{applicationI
       event.data.ref.root.child(`users/${member}`).set(cleanedData);
       return false;
     })
+    console.log('Saving publicApplications');
+    event.data.ref.root.child(`publicApplications/${applicationId}/firebaseProjectId`).set(cleanedData.firebaseProjectId);
+    event.data.ref.root.child(`publicApplications/${applicationId}/githubRepoUrl`).set(cleanedData.githubRepoUrl);
+    event.data.ref.root.child(`publicApplications/${applicationId}/teamCount`).set(cleanedData.teamCount);
+    event.data.ref.root.child(`publicApplications/${applicationId}/teamName`).set(cleanedData.teamName);
     console.log('Saved');
   });

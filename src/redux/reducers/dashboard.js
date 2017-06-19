@@ -3,10 +3,12 @@ const constant = constantCreator('dashboard');
 const UPDATE_ANNOUNCEMENT = constant('UPDATE_ANNOUNCEMENT');
 const SET_USER = constant('SET_USER');
 const SET_APPLICATIONS = constant('SET_APPLICATIONS');
+const SET_LEADERBOARD = constant('SET_LEADERBOARD');
 
 const initialState = {
   announcement: '',
   publicApplications: [],
+  showLeaderboard: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -27,6 +29,11 @@ const reducer = (state = initialState, action) => {
         publicApplications: Object.keys(action.data)
           .map((key) => action.data[key])
           .sort((a,b) => a.rank > b.rank),
+      }
+    case SET_LEADERBOARD:
+      return {
+        ...state,
+        showLeaderboard: action.data,
       }
     default: return state;
   }
@@ -49,4 +56,8 @@ export const actions = {
     type: SET_APPLICATIONS,
     data,
   }),
+  setLeaderboard: (data) => ({
+    type: SET_LEADERBOARD,
+    data,
+  })
 };
