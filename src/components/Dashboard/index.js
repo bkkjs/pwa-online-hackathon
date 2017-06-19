@@ -91,7 +91,7 @@ class Dashboard extends React.Component {
                   <li>{user.firstName} {user.lastName}</li>
                   {
                     user.members && Object.keys(user.members).map((key) =>
-                      <li>{user.members[key].firstName} {user.members[key].lastName}</li>
+                      <li key={key}>{user.members[key].firstName} {user.members[key].lastName}</li>
                     )
                   }
                 </ul>
