@@ -3,7 +3,9 @@ const constant = constantCreator('application');
 const LOGIN_WITH_GITHUB = constant('LOGIN_WITH_GITHUB', true);
 const SUBMIT_APPLICATION = constant('SUBMIT_APPLICATION', true);
 const SUBMIT_TEAM_MEMBER = constant('SUBMIT_TEAM_MEMBER', true);
-const GET_APPLICATION = constant('GET_APPLICATION', true)
+const GET_APPLICATION = constant('GET_APPLICATION', true);
+const LOGGED_IN = constant('LOGGED_IN');
+const LOGGED_OUT = constant('LOGGED_OUT');
 import * as firebase from 'firebase';
 
 const initialState = {
@@ -20,6 +22,19 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case LOGGED_IN:
+      return {
+        ...state,
+        loginPending: false,
+        loggedIn: true,
+        githubUser: action.data,
+      }
+    case LOGGED_OUT:
+      return {
+        ...state,
+        loggedIn: false,
+        githubUser: null,
+      }
     case LOGIN_WITH_GITHUB.PENDING:
       return {
         ...state,
@@ -91,6 +106,8 @@ export const actions = {
       })
     };
   },
+  login: (data) => ({ type: LOGGED_IN, data }),
+  logout: () => ({ type: LOGGED_OUT }),
   submit: (data) => {
     const ref = firebase.database().ref(`applications`).push();
     const promise = ref

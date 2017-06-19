@@ -16,3 +16,7 @@
   padding-left: 15px;
 }
     
+.profile-picture {
+  border-radius: 50%;
+  margin-right: 10px;
+}

@@ -1,0 +1,45 @@
+.red-text {
+  color: #f00;
+}
+
+.columns.timer, .columns.timer:last-child {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.columns.timer strong {
+  font-size: 35px;
+  font-weight: 400;
+}
+
+td span.fa {
+  vertical-align: baseline;
+}
+
+.leaderboard .done {
+  background: #52AE35;
+  color: #fff;
+}
+
+.leaderboard .done:hover {
+  background: #80d665;
+  color: #fff;
+}
+
+.table.leaderboard .done a {
+  color: #fff;
+}
+
+.table.leaderboard a {
+  text-decoration: underline;
+}
+
+.table.leaderboard tr.is-selected {
+  background: #ffdd57;
+  color: rgba(0,0,0,0.7);
+}
+
+.table.leaderboard tr.is-selected:hover {
+  background: #ffdd57;
+  color: rgba(0,0,0,0.7);
+}
