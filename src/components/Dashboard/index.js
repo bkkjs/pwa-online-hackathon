@@ -75,7 +75,7 @@ class Dashboard extends React.Component {
                   <span className={user.teamCountCurrent !== user.teamCount ? 'red-text' : ''}>{user.teamCountCurrent} / {user.teamCount}</span>
                 </p>
                 <p><strong>GitHub Repository URL:</strong>&nbsp;
-                  <a>{user.githubRepoUrl}</a>
+                  <a href={user.githubRepoUrl} target="_blank">{user.githubRepoUrl}</a>
                 </p>
                 <p><strong>Firebase Project ID:</strong>&nbsp;
                   <a href={`https://${user.firebaseProjectId}.firebaseapp.com`} target="_blank">{user.firebaseProjectId}</a>
