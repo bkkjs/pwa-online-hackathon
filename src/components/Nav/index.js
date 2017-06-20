@@ -22,6 +22,10 @@ class Nav extends React.Component {
     });
     firebase.auth().onAuthStateChanged((data) => {
       this.props.login(data);
+      const match = window.location.pathname.match(/^\/apply\/(.+)$/);
+      if (match) {
+        this.props.getApplication(match[1]);
+      }
       const announcementRef = firebase.database().ref('announcement');
       const userRef = firebase.database().ref(`users/${data.uid}`);
       const applicationsRef = firebase.database().ref('publicApplications');
@@ -188,4 +192,5 @@ export default connect((state) => {
   setUser: dashboardActions.setUser,
   setApplications: dashboardActions.setApplications,
   setLeaderboard: dashboardActions.setLeaderboard,
+  getApplication: actions.getApplication,
 })(Nav);

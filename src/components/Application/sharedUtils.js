@@ -52,6 +52,11 @@ export const Instructions = () => (
       <li>You can RSVP on Facebook event to subscribe for updates <a href="https://www.facebook.com/events/213868832464170/">here</a></li>
       <li>If you submit multiple applications, older application will be discarded</li>
     </ul>
+    <p className="register-button">
+      <Link to="/dashboard" className="button is-warning is-focused is-large login">
+        Go to Dashboard&nbsp;&nbsp;<i className="fa fa-chevron-right" />
+      </Link>
+    </p>
   </div>
 );
 
