@@ -44,3 +44,57 @@ exports.applicationChanged = functions.database.ref('/applications/{applicationI
     event.data.ref.root.child(`publicApplications/${applicationId}/teamName`).set(cleanedData.teamName);
     console.log('Saved');
   });
+
+exports.rankingChanged = functions.database.ref('/publicApplications/{applicationId}')
+  .onWrite((event) => {
+    const committedAtRef = event.data.child('committedAt');
+    const deployedAtRef = event.data.child('deployedAt');
+    const formSubmittedAtRef = event.data.child('formSubmittedAt');
+    const offlineSupportedRef = event.data.child('offlineSupported');
+    const manifestSupportedRef = event.data.child('manifestSupported');
+    if (!committedAtRef.changed() &&
+      !deployedAtRef.changed() &&
+      !formSubmittedAtRef.changed() &&
+      !offlineSupportedRef.changed() &&
+      !manifestSupportedRef.changed()
+    ) {
+      return;
+    }
+    return event.data.ref.root.child('/publicApplications').once('value')
+    .then((applicationsSnapshot) => {
+      const applications = applicationsSnapshot.val();
+      const rankings = [];
+      Object.keys(applications).map((key) => {
+        const application = applications[key];
+        const latest = Math.max(application.committedAt, application.deployedAt, application.formSubmittedAt);
+        const completed = !!(application.committedAt && application.deployedAt && application.formSubmittedAt && application.offlineSupported && application.manifestSupported);
+        const blank = !application.committedAt && !application.deployedAt && !application.formSubmittedAt;
+        rankings.push({
+          latest,
+          completed,
+          key,
+          blank,
+        });
+        return false;
+      });
+      rankings.sort((a, b) => {
+        if (a.completed !== b.completed) {
+          return !a.completed;
+        }
+        return a.latest - b.latest;
+      }).filter((a) => {
+        if (a.blank) {
+          event.data.ref.root.child(`publicApplications/${a.key}/rank`).remove(); 
+          return false;
+        }
+        return true
+      }).map((sorted, index) => {
+        event.data.ref.root.child(`publicApplications/${sorted.key}/rank`).set(index + 1);
+        if (sorted.completed)
+          event.data.ref.root.child(`publicApplications/${sorted.key}/completed`).set(true);
+        else
+          event.data.ref.root.child(`publicApplications/${sorted.key}/completed`).set(false); 
+        return false;
+      });
+    });
+  });

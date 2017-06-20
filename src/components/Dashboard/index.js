@@ -99,9 +99,12 @@ class Dashboard extends React.Component {
                 <p><strong>Shipping Address:</strong><br />
                   {user.shippingAddress}
                 </p>
-                <p><strong>Application URL:</strong>&nbsp;
-                  <a href={`https://pwa.online.hackathon.in.th/apply/${user.applicationId}`} target="_blank">https://pwa.online.hackathon.in.th/apply/{user.applicationId}</a>
-                </p>
+                {
+                  user.teamCountCurrent !== user.teamCount &&
+                  <p><strong>Application URL:</strong>&nbsp;
+                    <a href={`https://pwa.online.hackathon.in.th/apply/${user.applicationId}`} target="_blank">https://pwa.online.hackathon.in.th/apply/{user.applicationId}</a>
+                  </p>
+                }
                 <h2 className="title is-5">Team Members</h2>
                 <ul>
                   <li>{user.firstName} {user.lastName}</li>
@@ -179,20 +182,19 @@ class Dashboard extends React.Component {
                         publicApplications.map((application) => {
                           const {
                             committedAt, deployedAt, formSubmittedAt, rank,
-                            teamCount, firebaseProjectId, githubRepoUrl, teamName,
-                            lighthouseScore, offlinemanifestSupported, manifestSupported
+                            teamCount, firebaseProjectId, githubRepoUrl, teamName, completed,
+                            lighthouseScore, offlineSupported, manifestSupported,
                           } = application;
                           const lastActionAt = getLatest(committedAt, deployedAt, formSubmittedAt);
-                          const isDone = !!(committedAt && deployedAt && formSubmittedAt);
                           return (
-                            <tr key={firebaseProjectId} className={isDone ? 'done' : ''}>
+                            <tr key={teamName} className={completed ? 'done' : ''}>
                               <td>{ rank }</td>
                               <td>{ teamName } ({ teamCount } <span className="fa fa-user" />)</td>
                               {formatTimeCell(committedAt, githubRepoUrl)}
                               {formatTimeCell(deployedAt, `https://${firebaseProjectId}.firebaseapp.com`)}
                               {formatTimeCell(formSubmittedAt)}
                               {formatTimeCell(lastActionAt)}
-                              <td>{lighthouseScore} { offlinemanifestSupported && <span className="fa fa-wifi" /> } { manifestSupported && <span className="fa fa-home" /> }</td>
+                              <td>{lighthouseScore} { offlineSupported && <span className="fa fa-wifi" /> } { manifestSupported && <span className="fa fa-home" /> }</td>
                             </tr>
                           );
                         })

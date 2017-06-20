@@ -27,8 +27,10 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         publicApplications: Object.keys(action.data)
-          .map((key) => action.data[key])
-          .sort((a,b) => a.rank > b.rank),
+          .map((key) => {
+            action.data[key].applicationId = key;
+            return action.data[key];
+          }).sort((a, b) => (a.rank || Infinity) - (b.rank || Infinity)),
       }
     case SET_LEADERBOARD:
       return {
