@@ -22,11 +22,16 @@ const  validate = values => {
 
 class Form extends React.Component {
   render() {
-    const { invalid, submitFailed, handleSubmit } = this.props;
+    const { invalid, submitFailed, handleSubmit, appIcon } = this.props;
     return (
       <form onSubmit={handleSubmit}>
         <Field required readOnly component={inputField} name="teamName" label="Team Name" />
-        <Field required component={inputField} name="appName" label="Web Application Name" />
+        <Field required readOnly component={inputField} name="appName" label="Web Application Name">
+          <p className="sub-text">Retrieved from manifest.json file.</p>
+          {
+            appIcon && <img src={appIcon} style={{ maxWidth: '50px' }} alt="app icon" />
+          }
+        </Field>
         <Field required component={textareaField} name="appDetail" label="Web Application Details">
           <p className="sub-text">Please describe what your application does and how you use PWA and Firebase in your application.</p>
         </Field>
@@ -46,9 +51,11 @@ export default connect((state) => {
   const initialValues = loggedIn ? {
       teamName: state.dashboard.user.teamName,
       applicationId: state.dashboard.user.applicationId,
+      appName: state.dashboard.user.appName,
     } : null;
   return {
     initialValues,
+    appIcon: loggedIn && state.dashboard.user.appIcon,
   };
 }, {
 })(reduxForm({
