@@ -8,8 +8,8 @@ import { inputField, textareaField } from '../../utils/form';
 const  validate = values => {
   const errors = {};
   const requiredFields = ['teamName','appName','appDetail'];
-  if (values.leaderboardMessage && !values.leaderboardMessage.length > 15) {
-    errors.githubRepoUrl = 'Maximum 15 characters'
+  if (values.leaderboardMessage && values.leaderboardMessage.length > 20) {
+    errors.leaderboardMessage = 'Maximum 20 characters'
   }
   requiredFields.map((field) => {
     if (!values[field] || values[field].length === 0) {
@@ -35,8 +35,8 @@ class Form extends React.Component {
         <Field required component={textareaField} name="appDetail" label="Web Application Details">
           <p className="sub-text">Please describe what your application does and how you use PWA and Firebase in your application.</p>
         </Field>
-        <Field required component={inputField} maxLength="15" name="leaderboardMessage" label="Leaderboard Message">
-          <p className="sub-text">This short message (max. 15 characters) will appear in Leaderboard to show the world that you have finished. Be as creative as you like!</p>
+        <Field required component={inputField} name="leaderboardMessage" label="Leaderboard Message">
+          <p className="sub-text">This short message (max. 20 characters) will appear in Leaderboard to show the world that you have finished. Be as creative as you like!</p>
         </Field>
         <p className="control">
           <button disabled={submitFailed && invalid} className="button is-primary is-fullwidth" type="submit">Submit</button>

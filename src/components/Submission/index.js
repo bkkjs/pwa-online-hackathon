@@ -4,6 +4,7 @@ import './Submission.css';
 import Form from './Form';
 import { connect } from 'react-redux';
 import { actions } from '../../redux/reducers/dashboard';
+import { withRouter } from "react-router-dom";
 
 
 class Submission extends React.Component {
@@ -27,7 +28,9 @@ class Submission extends React.Component {
           <div className="columns is-vcentered">
             <div className="column is-4 is-offset-4">
               <div className="content">
-                <Form onSubmit={this.props.submitForm} />
+                <Form onSubmit={(data) => {
+                  this.props.submitForm(data).then(() => this.props.history.push('/dashboard'));
+                }} />
               </div>
             </div>
           </div>
@@ -40,4 +43,4 @@ class Submission extends React.Component {
 
 export default connect((state) => ({}), {
   submitForm: actions.submitForm,
-})(Submission);
+})(withRouter(Submission));
