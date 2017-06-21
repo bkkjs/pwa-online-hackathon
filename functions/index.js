@@ -42,6 +42,10 @@ exports.applicationChanged = functions.database.ref('/applications/{applicationI
     event.data.ref.root.child(`publicApplications/${applicationId}/githubRepoUrl`).set(cleanedData.githubRepoUrl);
     event.data.ref.root.child(`publicApplications/${applicationId}/teamCount`).set(cleanedData.teamCount);
     event.data.ref.root.child(`publicApplications/${applicationId}/teamName`).set(cleanedData.teamName);
+    if (cleanedData.leaderboardMessage)
+      event.data.ref.root.child(`publicApplications/${applicationId}/leaderboardMessage`).set(cleanedData.leaderboardMessage);
+    if (cleanedData.formSubmittedAt)
+      event.data.ref.root.child(`publicApplications/${applicationId}/formSubmittedAt`).set(cleanedData.formSubmittedAt);
     console.log('Saved');
   });
 

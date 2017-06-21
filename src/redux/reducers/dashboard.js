@@ -1,5 +1,7 @@
 import { constantCreator } from '../constantCreator';
+import * as firebase from 'firebase';
 const constant = constantCreator('dashboard');
+const SUBMIT_FORM = constant('SUBMIT_FORM', true);
 const UPDATE_ANNOUNCEMENT = constant('UPDATE_ANNOUNCEMENT');
 const SET_USER = constant('SET_USER');
 const SET_APPLICATIONS = constant('SET_APPLICATIONS');
@@ -61,5 +63,15 @@ export const actions = {
   setLeaderboard: (data) => ({
     type: SET_LEADERBOARD,
     data,
-  })
+  }),
+  submitForm: (data) => {
+    const ref = firebase.database().ref(`applications/${data.applicationId}`);
+    const promise = ref
+    .update({ ...data, formSubmittedAt: firebase.database.ServerValue.TIMESTAMP })
+    .then(() => ({ data: { ...data, key: ref.key } }));
+    return {
+      type: SUBMIT_FORM,
+      promise,
+    };
+  },
 };

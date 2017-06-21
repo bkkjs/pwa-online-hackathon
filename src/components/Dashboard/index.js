@@ -60,6 +60,7 @@ class Dashboard extends React.Component {
   }
   render() {
     const { user, publicApplications, announcement, loggedIn } = this.props;
+    let count = 0;
     return (
     <section className="section">
       <div className="container">
@@ -179,20 +180,22 @@ class Dashboard extends React.Component {
                     </thead>
                     <tbody>
                       {
-                        publicApplications.map((application) => {
+                        publicApplications.map((application, index) => {
                           const {
-                            committedAt, deployedAt, formSubmittedAt, rank,
+                            committedAt, deployedAt, formSubmittedAt, rank, leaderboardMessage,
                             teamCount, firebaseProjectId, githubRepoUrl, teamName, completed,
                             lighthouseScore, offlineSupported, manifestSupported,
                           } = application;
                           const lastActionAt = getLatest(committedAt, deployedAt, formSubmittedAt);
+                          const isOver200 = count < 200 && (count + teamCount >= 200);
+                          count += teamCount;
                           return (
-                            <tr key={teamName} className={completed ? 'done' : ''}>
+                            <tr key={teamName} className={completed ? 'done' : ''} style={{borderBottom: isOver200 ? '3px solid black' : null}}>
                               <td>{ rank }</td>
                               <td>{ teamName } ({ teamCount } <span className="fa fa-user" />)</td>
                               {formatTimeCell(committedAt, githubRepoUrl)}
                               {formatTimeCell(deployedAt, `https://${firebaseProjectId}.firebaseapp.com`)}
-                              {formatTimeCell(formSubmittedAt)}
+                              {formatTimeCell(formSubmittedAt, null, leaderboardMessage)}
                               {formatTimeCell(lastActionAt)}
                               <td>{lighthouseScore} { offlineSupported && <span className="fa fa-wifi" /> } { manifestSupported && <span className="fa fa-home" /> }</td>
                             </tr>

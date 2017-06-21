@@ -12,6 +12,7 @@ import Resources from './components/Resources';
 import Sponsors from './components/Sponsors';
 import Application from './components/Application';
 import Dashboard from './components/Dashboard';
+import Submission from './components/Submission';
 import RegisterTeamMember from './components/Application/RegisterTeamMember';
 
 import HomeEn from './components/Home/En';
@@ -47,6 +48,7 @@ const App = ({ history }) =>
         <Route exact path="/" component={Home}/>
         <Route exact path="/rules" component={Rules}/>
         <Route exact path="/dashboard" component={Dashboard}/>
+        <Route exact path="/submit" component={Submission}/>
         <Route exact path="/prizes" component={Prizes}/>
         <Route exact path="/resources" component={Resources}/>
         <Route exact path="/sponsors" component={Sponsors}/>
