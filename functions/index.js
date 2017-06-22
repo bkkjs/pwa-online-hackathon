@@ -12,6 +12,7 @@ const cleanMember = (member) => {
 
 exports.applicationChanged = functions.database.ref('/applications/{applicationId}')
   .onWrite((event) => {
+    let promises = [];
     const applicationId = event.params.applicationId;
     if (!event.data.exists()) {
       return;
@@ -30,23 +31,22 @@ exports.applicationChanged = functions.database.ref('/applications/{applicationI
     }
     data.teamCountCurrent = 1 + (data.members ? Object.keys(data.members).length : 0);
     const cleanedData = JSON.parse(JSON.stringify(data))
-    event.data.ref.set(cleanedData);
+    promises.push(event.data.ref.set(cleanedData));
     console.log('Saving members');
     cleanedData.applicationId = applicationId;
-    members.map((member) => {
-      event.data.ref.root.child(`users/${member}`).set(cleanedData);
-      return false;
-    })
+    promises = promises.concat(members.map((member) =>
+      event.data.ref.root.child(`users/${member}`).set(cleanedData)
+    ));
     console.log('Saving publicApplications');
-    event.data.ref.root.child(`publicApplications/${applicationId}/firebaseProjectId`).set(cleanedData.firebaseProjectId);
-    event.data.ref.root.child(`publicApplications/${applicationId}/githubRepoUrl`).set(cleanedData.githubRepoUrl);
-    event.data.ref.root.child(`publicApplications/${applicationId}/teamCount`).set(cleanedData.teamCountCurrent);
-    event.data.ref.root.child(`publicApplications/${applicationId}/teamName`).set(cleanedData.teamName);
+    promises.push(event.data.ref.root.child(`publicApplications/${applicationId}/firebaseProjectId`).set(cleanedData.firebaseProjectId));
+    promises.push(event.data.ref.root.child(`publicApplications/${applicationId}/githubRepoUrl`).set(cleanedData.githubRepoUrl));
+    promises.push(event.data.ref.root.child(`publicApplications/${applicationId}/teamCount`).set(cleanedData.teamCountCurrent));
+    promises.push(event.data.ref.root.child(`publicApplications/${applicationId}/teamName`).set(cleanedData.teamName));
     if (cleanedData.leaderboardMessage)
-      event.data.ref.root.child(`publicApplications/${applicationId}/leaderboardMessage`).set(cleanedData.leaderboardMessage);
+      promises.push(event.data.ref.root.child(`publicApplications/${applicationId}/leaderboardMessage`).set(cleanedData.leaderboardMessage));
     if (cleanedData.formSubmittedAt)
-      event.data.ref.root.child(`publicApplications/${applicationId}/formSubmittedAt`).set(cleanedData.formSubmittedAt);
-    event.data.ref.root.child('/applications').once('value')
+      promises.push(event.data.ref.root.child(`publicApplications/${applicationId}/formSubmittedAt`).set(cleanedData.formSubmittedAt));
+    promises.push(event.data.ref.root.child('/applications').once('value')
     .then((applicationsSnapshot) => {
       const applications = applicationsSnapshot.val();
       const totalTeam = Object.keys(applications).length;
@@ -56,10 +56,13 @@ exports.applicationChanged = functions.database.ref('/applications/{applicationI
         totalApplicant += application.teamCountCurrent;
         return false;
       });
-      event.data.ref.root.child(`publicMeta/totalApplicant`).set(totalApplicant);
-      event.data.ref.root.child(`publicMeta/totalTeam`).set(totalTeam);
-    });
+      return Promise.all([
+        event.data.ref.root.child(`publicMeta/totalApplicant`).set(totalApplicant),
+        event.data.ref.root.child(`publicMeta/totalTeam`).set(totalTeam),
+      ]);
+    }));
     console.log('Saved');
+    return Promise.all(promises);
   });
 
 exports.rankingChanged = functions.database.ref('/publicApplications/{applicationId}')
@@ -94,6 +97,7 @@ exports.rankingChanged = functions.database.ref('/publicApplications/{applicatio
         });
         return false;
       });
+      const promises = [];
       rankings.sort((a, b) => {
         if (a.completed !== b.completed) {
           return !a.completed;
@@ -101,17 +105,18 @@ exports.rankingChanged = functions.database.ref('/publicApplications/{applicatio
         return a.latest - b.latest;
       }).filter((a) => {
         if (a.blank) {
-          event.data.ref.root.child(`publicApplications/${a.key}/rank`).remove(); 
+          promises.push(event.data.ref.root.child(`publicApplications/${a.key}/rank`).remove());
           return false;
         }
         return true
       }).map((sorted, index) => {
-        event.data.ref.root.child(`publicApplications/${sorted.key}/rank`).set(index + 1);
+        promises.push(event.data.ref.root.child(`publicApplications/${sorted.key}/rank`).set(index + 1));
         if (sorted.completed)
-          event.data.ref.root.child(`publicApplications/${sorted.key}/completed`).set(true);
+          promises.push(event.data.ref.root.child(`publicApplications/${sorted.key}/completed`).set(true));
         else
-          event.data.ref.root.child(`publicApplications/${sorted.key}/completed`).set(false); 
+          promises.push(event.data.ref.root.child(`publicApplications/${sorted.key}/completed`).set(false)); 
         return false;
       });
+      return Promise.all(promises);
     });
   });
