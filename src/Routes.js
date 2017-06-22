@@ -11,6 +11,7 @@ import Prizes from './components/Prizes';
 import Resources from './components/Resources';
 import Sponsors from './components/Sponsors';
 import Application from './components/Application';
+import Detail from './components/Detail';
 import Dashboard from './components/Dashboard';
 import Submission from './components/Submission';
 import RegisterTeamMember from './components/Application/RegisterTeamMember';
@@ -50,6 +51,7 @@ const App = ({ history }) =>
         <Route exact path="/dashboard" component={Dashboard}/>
         <Route exact path="/submit" component={Submission}/>
         <Route exact path="/prizes" component={Prizes}/>
+        <Route exact path="/detail" component={Detail}/>
         <Route exact path="/resources" component={Resources}/>
         <Route exact path="/sponsors" component={Sponsors}/>
         <Route exact path="/apply" component={Application}/>
