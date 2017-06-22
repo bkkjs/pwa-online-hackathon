@@ -5,12 +5,14 @@ const SUBMIT_FORM = constant('SUBMIT_FORM', true);
 const UPDATE_ANNOUNCEMENT = constant('UPDATE_ANNOUNCEMENT');
 const SET_USER = constant('SET_USER');
 const SET_APPLICATIONS = constant('SET_APPLICATIONS');
+const SET_RANKINGS = constant('SET_RANKINGS');
 const SET_LEADERBOARD = constant('SET_LEADERBOARD');
 const SET_META = constant('SET_META');
 
 const initialState = {
   announcement: '',
-  publicApplications: [],
+  publicApplications: {},
+  publicRankings: [],
   showLeaderboard: false,
   meta: {},
 };
@@ -30,7 +32,12 @@ const reducer = (state = initialState, action) => {
     case SET_APPLICATIONS:
       return {
         ...state,
-        publicApplications: Object.keys(action.data)
+        publicApplications: action.data,
+      }
+    case SET_RANKINGS:
+      return {
+        ...state,
+        publicRankings: Object.keys(action.data)
           .map((key) => {
             action.data[key].applicationId = key;
             return action.data[key];
@@ -66,6 +73,10 @@ export const actions = {
   setApplications: (data) => ({
     type: SET_APPLICATIONS,
     data,
+  }),
+  setRankings: (data) => ({
+    type: SET_RANKINGS,
+    data
   }),
   setLeaderboard: (data) => ({
     type: SET_LEADERBOARD,

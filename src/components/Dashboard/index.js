@@ -59,7 +59,7 @@ class Dashboard extends React.Component {
 
   }
   render() {
-    const { user, publicApplications, announcement, loggedIn, meta } = this.props;
+    const { user, publicApplications, publicRankings, announcement, loggedIn, meta } = this.props;
     let count = 0;
     return (
     <section className="section">
@@ -172,7 +172,7 @@ class Dashboard extends React.Component {
                 <span className="fa fa-home" /> = Manifest installed
               </p>
               {
-                publicApplications.length > 0 &&
+                publicRankings.length > 0 &&
                 <div className="scrollable">
                   <table className="table leaderboard">
                     <thead>
@@ -188,10 +188,12 @@ class Dashboard extends React.Component {
                     </thead>
                     <tbody>
                       {
-                        publicApplications.map((application, index) => {
+                        Object.keys(publicApplications).length > 0 && publicRankings.map((ranking, index) => {
+                          const { rank, completed } = ranking;
+                          const application = publicApplications[ranking.applicationId];
                           const {
-                            committedAt, deployedAt, formSubmittedAt, rank, leaderboardMessage,
-                            teamCount, firebaseProjectId, githubRepoUrl, teamName, completed,
+                            committedAt, deployedAt, formSubmittedAt, leaderboardMessage,
+                            teamCount, firebaseProjectId, githubRepoUrl, teamName,
                             lighthouseScore, offlineSupported, manifestSupported, applicationId
                           } = application;
                           const lastActionAt = getLatest(committedAt, deployedAt, formSubmittedAt);
@@ -227,6 +229,7 @@ export default connect((state) => ({
   announcement: state.dashboard.announcement,
   user: state.dashboard.user,
   publicApplications: state.dashboard.publicApplications,
+  publicRankings: state.dashboard.publicRankings,
   loggedIn: state.application.loggedIn,
   showLeaderboard: state.dashboard.showLeaderboard,
   meta: state.dashboard.meta,

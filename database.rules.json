@@ -8,6 +8,9 @@
     "publicApplications": {
       ".read": true
     },
+    "publicRankings": {
+      ".read": true
+    },
     "announcement": {
       ".read": true
     },

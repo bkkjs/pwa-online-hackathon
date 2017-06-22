@@ -34,6 +34,7 @@ class Nav extends React.Component {
         });
       }
       const applicationsRef = firebase.database().ref('publicApplications');
+      const rankingsRef = firebase.database().ref('publicRankings');
       const metaRef = firebase.database().ref('publicMeta');
       const showLeaderboardRef = firebase.database().ref('showLeaderboard');
       announcementRef.on('value', (snapshot) => {
@@ -41,6 +42,9 @@ class Nav extends React.Component {
       });
       applicationsRef.on('value', (snapshot) => {
         this.props.setApplications(snapshot.val());
+      });
+      rankingsRef.on('value', (snapshot) => {
+        this.props.setRankings(snapshot.val());
       });
       showLeaderboardRef.on('value', (snapshot) => {
         this.props.setLeaderboard(snapshot.val());
@@ -197,6 +201,7 @@ export default connect((state) => {
   updateAnnouncement: dashboardActions.updateAnnouncement,
   setUser: dashboardActions.setUser,
   setApplications: dashboardActions.setApplications,
+  setRankings: dashboardActions.setRankings,
   setLeaderboard: dashboardActions.setLeaderboard,
   getApplication: actions.getApplication,
   setMeta: dashboardActions.setMeta,

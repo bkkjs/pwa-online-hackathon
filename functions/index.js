@@ -84,40 +84,43 @@ exports.rankingChanged = functions.database.ref('/publicApplications/{applicatio
     return event.data.ref.root.child('/publicApplications').once('value')
     .then((applicationsSnapshot) => {
       const applications = applicationsSnapshot.val();
-      const rankings = [];
-      Object.keys(applications).map((key) => {
+      const rankings = Object.keys(applications).map((key) => {
         const application = applications[key];
-        const latest = Math.max(application.committedAt, application.deployedAt, application.formSubmittedAt);
+        const latest = Math.max(application.committedAt || 0, application.deployedAt || 0, application.formSubmittedAt || 0);
         const completed = !!(application.committedAt && application.deployedAt && application.formSubmittedAt && application.offlineSupported && application.manifestSupported);
         const blank = !application.committedAt && !application.deployedAt && !application.formSubmittedAt;
-        rankings.push({
+        return {
           latest,
           completed,
           key,
           blank,
-        });
-        return false;
+        };
       });
-      const promises = [];
-      rankings.sort((a, b) => {
+
+      let promises = rankings.reduce((promises, ranking) => {
+        if (ranking.completed) {
+          promises.push(event.data.ref.root.child(`publicRankings/${ranking.key}/completed`).set(true));
+        } else {
+          promises.push(event.data.ref.root.child(`publicRankings/${ranking.key}/completed`).set(false))
+        }
+        if (ranking.blank) {
+          promises.push(event.data.ref.root.child(`publicRankings/${ranking.key}/ranking`).remove())
+        }
+        return promises;
+      }, []);
+
+      const nonBlankRankings = rankings.filter((a) => !a.blank);
+      promises = promises.concat(nonBlankRankings.sort((a, b) => {
         if (a.completed !== b.completed) {
-          return !a.completed;
+          return b.completed - a.completed;
         }
         return a.latest - b.latest;
-      }).filter((a) => {
-        if (a.blank) {
-          promises.push(event.data.ref.root.child(`publicApplications/${a.key}/rank`).remove());
-          return false;
-        }
-        return true
-      }).map((sorted, index) => {
-        promises.push(event.data.ref.root.child(`publicApplications/${sorted.key}/rank`).set(index + 1));
-        if (sorted.completed)
-          promises.push(event.data.ref.root.child(`publicApplications/${sorted.key}/completed`).set(true));
-        else
-          promises.push(event.data.ref.root.child(`publicApplications/${sorted.key}/completed`).set(false)); 
-        return false;
-      });
+      }).map((ranking, index) =>
+        event.data.ref.root.child(`publicRankings/${ranking.key}/rank`).set(index + 1)
+      ));
+
+      console.log(`Processing ${promises.length} promises...`);
+
       return Promise.all(promises);
     });
   });
