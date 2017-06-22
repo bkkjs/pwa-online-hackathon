@@ -11,7 +11,7 @@ export const formatTimeCell = (timestamp, url, additionalMessage) =>
       {additionalMessage && <br />}
       {additionalMessage && <span style={{fontSize: '11px', lineHeight: '10px'}}>{additionalMessage}</span>}</td>
     ) :
-    <td> - </td>
+    <td> <a href={url} target="_blank">-</a> </td>
   );
 
 export const getLatest = (...args) => {
