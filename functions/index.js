@@ -17,6 +17,7 @@ exports.applicationChanged = functions.database.ref('/applications/{applicationI
     if (!event.data.exists()) {
       return;
     }
+    console.log(`Updating ${applicationId}`);
     const data = event.data.val();
     const members = [data.uid];
     const memberIndex = {};

@@ -1,6 +1,30 @@
 {
   "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
+    ".read": false,
+    ".write": false,
+    "publicMeta": {
+      ".read": true
+    },
+    "publicApplications": {
+      ".read": true
+    },
+    "announcement": {
+      ".read": true
+    },
+    "showLeaderboard": {
+      ".read": true
+    },
+    "applications": {
+      "$applicationId": {
+        ".read": "auth !== null",
+        ".write": "auth !== null"
+      }
+    },
+    "users": {
+      "$userId": {
+        ".read": "auth !== null && auth.uid === $userId",
+        ".write": "auth !== null && auth.uid === $userId"
+      }
+    }
   }
 }
