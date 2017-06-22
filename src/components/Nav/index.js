@@ -27,15 +27,17 @@ class Nav extends React.Component {
         this.props.getApplication(match[1]);
       }
       const announcementRef = firebase.database().ref('announcement');
-      const userRef = firebase.database().ref(`users/${data.uid}`);
+      if (data && data.uid) {
+        const userRef = firebase.database().ref(`users/${data.uid}`);
+        userRef.on('value', (snapshot) => {
+          this.props.setUser(snapshot.val());
+        });
+      }
       const applicationsRef = firebase.database().ref('publicApplications');
       const metaRef = firebase.database().ref('publicMeta');
       const showLeaderboardRef = firebase.database().ref('showLeaderboard');
       announcementRef.on('value', (snapshot) => {
         this.props.updateAnnouncement(snapshot.val());
-      });
-      userRef.on('value', (snapshot) => {
-        this.props.setUser(snapshot.val());
       });
       applicationsRef.on('value', (snapshot) => {
         this.props.setApplications(snapshot.val());
