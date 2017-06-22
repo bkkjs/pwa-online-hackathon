@@ -6,11 +6,13 @@ const UPDATE_ANNOUNCEMENT = constant('UPDATE_ANNOUNCEMENT');
 const SET_USER = constant('SET_USER');
 const SET_APPLICATIONS = constant('SET_APPLICATIONS');
 const SET_LEADERBOARD = constant('SET_LEADERBOARD');
+const SET_META = constant('SET_META');
 
 const initialState = {
   announcement: '',
   publicApplications: [],
   showLeaderboard: false,
+  meta: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -39,6 +41,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         showLeaderboard: action.data,
       }
+    case SET_META:
+      return {
+        ...state,
+        meta: action.data,
+      }
     default: return state;
   }
 };
@@ -62,6 +69,10 @@ export const actions = {
   }),
   setLeaderboard: (data) => ({
     type: SET_LEADERBOARD,
+    data,
+  }),
+  setMeta: (data) => ({
+    type: SET_META,
     data,
   }),
   submitForm: (data) => {

@@ -29,6 +29,7 @@ class Nav extends React.Component {
       const announcementRef = firebase.database().ref('announcement');
       const userRef = firebase.database().ref(`users/${data.uid}`);
       const applicationsRef = firebase.database().ref('publicApplications');
+      const metaRef = firebase.database().ref('publicMeta');
       const showLeaderboardRef = firebase.database().ref('showLeaderboard');
       announcementRef.on('value', (snapshot) => {
         this.props.updateAnnouncement(snapshot.val());
@@ -41,6 +42,9 @@ class Nav extends React.Component {
       });
       showLeaderboardRef.on('value', (snapshot) => {
         this.props.setLeaderboard(snapshot.val());
+      });
+      metaRef.on('value', (snapshot) => {
+        this.props.setMeta(snapshot.val());
       });
     })
   }
@@ -193,4 +197,5 @@ export default connect((state) => {
   setApplications: dashboardActions.setApplications,
   setLeaderboard: dashboardActions.setLeaderboard,
   getApplication: actions.getApplication,
+  setMeta: dashboardActions.setMeta,
 })(Nav);

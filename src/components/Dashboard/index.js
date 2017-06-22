@@ -59,7 +59,7 @@ class Dashboard extends React.Component {
 
   }
   render() {
-    const { user, publicApplications, announcement, loggedIn } = this.props;
+    const { user, publicApplications, announcement, loggedIn, meta } = this.props;
     let count = 0;
     return (
     <section className="section">
@@ -149,6 +149,14 @@ class Dashboard extends React.Component {
                   </div>
                 </div>
               }
+              <div className="columns timer has-text-centered">
+                <div className="column">
+                  <strong>{meta.totalTeam}</strong><br />Teams
+                </div>
+                <div className="column">
+                  <strong>{meta.totalApplicant}</strong><br />Applicants
+                </div>
+              </div>
               {
                 announcement !== '' &&
                   <div dangerouslySetInnerHTML={{__html: announcement}} />
@@ -197,7 +205,7 @@ class Dashboard extends React.Component {
                               {formatTimeCell(deployedAt, `https://${firebaseProjectId}.firebaseapp.com`)}
                               {formatTimeCell(formSubmittedAt, null, leaderboardMessage)}
                               {formatTimeCell(lastActionAt)}
-                              <td>{lighthouseScore} { offlineSupported && <span className="fa fa-wifi" /> } { manifestSupported && <span className="fa fa-home" /> }</td>
+                              <td>{lighthouseScore && parseInt(lighthouseScore, 10)} { offlineSupported && <span className="fa fa-wifi" /> } { manifestSupported && <span className="fa fa-home" /> }</td>
                             </tr>
                           );
                         })
@@ -221,6 +229,7 @@ export default connect((state) => ({
   publicApplications: state.dashboard.publicApplications,
   loggedIn: state.application.loggedIn,
   showLeaderboard: state.dashboard.showLeaderboard,
+  meta: state.dashboard.meta,
 }), {
   loginWithGithub: actions.loginWithGithub
 })(Dashboard);

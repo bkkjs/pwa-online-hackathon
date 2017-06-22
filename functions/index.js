@@ -40,12 +40,25 @@ exports.applicationChanged = functions.database.ref('/applications/{applicationI
     console.log('Saving publicApplications');
     event.data.ref.root.child(`publicApplications/${applicationId}/firebaseProjectId`).set(cleanedData.firebaseProjectId);
     event.data.ref.root.child(`publicApplications/${applicationId}/githubRepoUrl`).set(cleanedData.githubRepoUrl);
-    event.data.ref.root.child(`publicApplications/${applicationId}/teamCount`).set(cleanedData.teamCount);
+    event.data.ref.root.child(`publicApplications/${applicationId}/teamCount`).set(cleanedData.teamCountCurrent);
     event.data.ref.root.child(`publicApplications/${applicationId}/teamName`).set(cleanedData.teamName);
     if (cleanedData.leaderboardMessage)
       event.data.ref.root.child(`publicApplications/${applicationId}/leaderboardMessage`).set(cleanedData.leaderboardMessage);
     if (cleanedData.formSubmittedAt)
       event.data.ref.root.child(`publicApplications/${applicationId}/formSubmittedAt`).set(cleanedData.formSubmittedAt);
+    event.data.ref.root.child('/applications').once('value')
+    .then((applicationsSnapshot) => {
+      const applications = applicationsSnapshot.val();
+      const totalTeam = Object.keys(applications).length;
+      let totalApplicant = 0;
+      Object.keys(applications).map((key) => {
+        const application = applications[key];
+        totalApplicant += application.teamCountCurrent;
+        return false;
+      });
+      event.data.ref.root.child(`publicMeta/totalApplicant`).set(totalApplicant);
+      event.data.ref.root.child(`publicMeta/totalTeam`).set(totalTeam);
+    });
     console.log('Saved');
   });
 
