@@ -19,6 +19,11 @@ const Detail = () =>
     <div className="container">
       <div className="content detail-content">
         <h2>รายละเอียดการแข่งขัน</h2>
+        <div className="columns">
+          <div className="column is-6 is-offset-3">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/ztUXK6_wY0Q" frameBorder="0" allowFullScreen></iframe>
+          </div>
+        </div>
         <ul>
           <li>ขอให้ทุกท่านใช้ GitHub repo เดียวกับที่สมัครเข้ามาเท่านั้น หากมีการเปลี่ยนแปลง กรุณาแจ้งก่อนการแข่งขัน (ต้องเป็น public repository เท่านั้น)</li>
           <li>กรุณา Add member ของ Firebase Project ที่จะใช้ในการแข่งขัน โดยให้ add account <strong>pwaonlinehack@gmail.com</strong> เป็นสิทธิ Editor ตามวิธีการนี้ <a target="_blank" href="https://support.google.com/firebase/answer/7000272">https://support.google.com/firebase/answer/7000272</a></li>
