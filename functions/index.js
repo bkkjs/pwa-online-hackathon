@@ -4,6 +4,7 @@ const functions = require('firebase-functions');
 // The Firebase Admin SDK to access the Firebase Realtime Database. 
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
+const db = admin.database();
 
 const cleanMember = (member) => {
   const { firstName, lastName, tshirtSize, mobile, optIn, photoURL, timestamp, email, uid } = member;
@@ -36,30 +37,30 @@ exports.applicationChanged = functions.database.ref('/applications/{applicationI
     console.log('Saving members');
     cleanedData.applicationId = applicationId;
     promises = promises.concat(members.map((member) =>
-      event.data.ref.root.child(`users/${member}`).set(cleanedData)
+      db.ref(`users/${member}`).set(cleanedData)
     ));
     console.log('Saving publicApplications');
-    promises.push(event.data.ref.root.child(`publicApplications/${applicationId}/firebaseProjectId`).set(cleanedData.firebaseProjectId));
-    promises.push(event.data.ref.root.child(`publicApplications/${applicationId}/githubRepoUrl`).set(cleanedData.githubRepoUrl));
-    promises.push(event.data.ref.root.child(`publicApplications/${applicationId}/teamCount`).set(cleanedData.teamCountCurrent));
-    promises.push(event.data.ref.root.child(`publicApplications/${applicationId}/teamName`).set(cleanedData.teamName));
+    promises.push(db.ref(`publicApplications/${applicationId}/firebaseProjectId`).set(cleanedData.firebaseProjectId));
+    promises.push(db.ref(`publicApplications/${applicationId}/githubRepoUrl`).set(cleanedData.githubRepoUrl));
+    promises.push(db.ref(`publicApplications/${applicationId}/teamCount`).set(cleanedData.teamCountCurrent));
+    promises.push(db.ref(`publicApplications/${applicationId}/teamName`).set(cleanedData.teamName));
     if (cleanedData.leaderboardMessage)
-      promises.push(event.data.ref.root.child(`publicApplications/${applicationId}/leaderboardMessage`).set(cleanedData.leaderboardMessage));
+      promises.push(db.ref(`publicApplications/${applicationId}/leaderboardMessage`).set(cleanedData.leaderboardMessage));
     if (cleanedData.formSubmittedAt)
-      promises.push(event.data.ref.root.child(`publicApplications/${applicationId}/formSubmittedAt`).set(cleanedData.formSubmittedAt));
-    promises.push(event.data.ref.root.child('/applications').once('value')
+      promises.push(db.ref(`publicApplications/${applicationId}/formSubmittedAt`).set(cleanedData.formSubmittedAt));
+    promises.push(db.ref('/applications').once('value')
     .then((applicationsSnapshot) => {
       const applications = applicationsSnapshot.val();
       const totalTeam = Object.keys(applications).length;
       let totalApplicant = 0;
       Object.keys(applications).map((key) => {
         const application = applications[key];
-        totalApplicant += application.teamCountCurrent;
+        totalApplicant += 1 + (application.members ? Object.keys(application.members).length : 0);
         return false;
       });
       return Promise.all([
-        event.data.ref.root.child(`publicMeta/totalApplicant`).set(totalApplicant),
-        event.data.ref.root.child(`publicMeta/totalTeam`).set(totalTeam),
+        db.ref(`publicMeta/totalApplicant`).set(totalApplicant),
+        db.ref(`publicMeta/totalTeam`).set(totalTeam),
       ]);
     }));
     console.log('Saved');
@@ -81,7 +82,7 @@ exports.rankingChanged = functions.database.ref('/publicApplications/{applicatio
     ) {
       return;
     }
-    return event.data.ref.root.child('/publicApplications').once('value')
+    return db.ref('/publicApplications').once('value')
     .then((applicationsSnapshot) => {
       const applications = applicationsSnapshot.val();
       const rankings = Object.keys(applications).map((key) => {
@@ -99,16 +100,16 @@ exports.rankingChanged = functions.database.ref('/publicApplications/{applicatio
 
       let promises = rankings.reduce((promises, ranking) => {
         if (ranking.completed) {
-          promises.push(event.data.ref.root.child(`publicRankings/${ranking.key}/completed`).set(true));
+          promises.push(db.ref(`publicRankings/${ranking.key}/completed`).set(true));
         } else {
-          promises.push(event.data.ref.root.child(`publicRankings/${ranking.key}/completed`).set(false))
+          promises.push(db.ref(`publicRankings/${ranking.key}/completed`).set(false))
         }
         if (ranking.blank) {
-          promises.push(event.data.ref.root.child(`publicRankings/${ranking.key}/ranking`).remove())
+          promises.push(db.ref(`publicRankings/${ranking.key}/rank`).remove())
         }
         return promises;
       }, []);
-
+      
       const nonBlankRankings = rankings.filter((a) => !a.blank);
       promises = promises.concat(nonBlankRankings.sort((a, b) => {
         if (a.completed !== b.completed) {
@@ -116,7 +117,7 @@ exports.rankingChanged = functions.database.ref('/publicApplications/{applicatio
         }
         return a.latest - b.latest;
       }).map((ranking, index) =>
-        event.data.ref.root.child(`publicRankings/${ranking.key}/rank`).set(index + 1)
+        db.ref(`publicRankings/${ranking.key}/rank`).set(index + 1)
       ));
 
       console.log(`Processing ${promises.length} promises...`);

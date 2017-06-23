@@ -194,14 +194,14 @@ class Dashboard extends React.Component {
                           const {
                             committedAt, deployedAt, formSubmittedAt, leaderboardMessage,
                             teamCount, firebaseProjectId, githubRepoUrl, teamName,
-                            lighthouseScore, offlineSupported, manifestSupported, applicationId
+                            lighthouseScore, offlineSupported, manifestSupported
                           } = application;
                           const lastActionAt = getLatest(committedAt, deployedAt, formSubmittedAt);
                           const isOver200 = count < 200 && (count + teamCount >= 200);
                           count += teamCount;
                           return (
-                            <tr key={applicationId} className={completed ? 'done' : ''} style={{borderBottom: isOver200 ? '3px solid black' : null}}>
-                              <td>{ rank }<span style={{display: 'none'}}>{applicationId}</span></td>
+                            <tr key={ranking.applicationId} className={completed ? 'done' : ''} style={{borderBottom: isOver200 ? '3px solid black' : null}}>
+                              <td>{ rank }<span style={{display: 'none'}}>{ranking.applicationId}</span></td>
                               <td>{ teamName } ({ teamCount } <span className="fa fa-user" />)</td>
                               {formatTimeCell(committedAt, githubRepoUrl)}
                               {formatTimeCell(deployedAt, `https://${firebaseProjectId}.firebaseapp.com`)}
