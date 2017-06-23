@@ -59,7 +59,7 @@ class Dashboard extends React.Component {
 
   }
   render() {
-    const { user, publicApplications, publicRankings, announcement, loggedIn, meta } = this.props;
+    const { user, publicApplications, publicRankings, announcement, loggedIn, meta, githubUser } = this.props;
     let count = 0;
     return (
     <section className="section">
@@ -184,6 +184,10 @@ class Dashboard extends React.Component {
                         <th>Submission Form</th>
                         <th>Last Action</th>
                         <th>Features</th>
+                        {
+                          loggedIn && ['ZZjMWdm4bNaIFpCvOFpwP5QqDUU2','pc2evZvGEmcTU2y4LBRGxCwj6gx2'].indexOf(githubUser.uid) >= 0 &&
+                          <th>Last Updated</th>
+                        }
                       </tr>
                     </thead>
                     <tbody>
@@ -194,7 +198,8 @@ class Dashboard extends React.Component {
                           const {
                             committedAt, deployedAt, formSubmittedAt, leaderboardMessage,
                             teamCount, firebaseProjectId, githubRepoUrl, teamName,
-                            lighthouseScore, offlineSupported, manifestSupported
+                            lighthouseScore, offlineSupported, manifestSupported,
+                            lastestUpdated
                           } = application;
                           const lastActionAt = getLatest(committedAt, deployedAt, formSubmittedAt);
                           const isOver200 = count < 200 && (count + teamCount >= 200);
@@ -208,6 +213,10 @@ class Dashboard extends React.Component {
                               {formatTimeCell(formSubmittedAt, null, leaderboardMessage)}
                               {formatTimeCell(lastActionAt)}
                               <td>{lighthouseScore && parseInt(lighthouseScore, 10)} { offlineSupported && <span className="fa fa-wifi" /> } { manifestSupported && <span className="fa fa-home" /> }</td>
+                              {
+                                loggedIn && ['ZZjMWdm4bNaIFpCvOFpwP5QqDUU2','pc2evZvGEmcTU2y4LBRGxCwj6gx2'].indexOf(githubUser.uid) >= 0 &&
+                                formatTimeCell(lastestUpdated)
+                              }
                             </tr>
                           );
                         })
@@ -233,6 +242,7 @@ export default connect((state) => ({
   loggedIn: state.application.loggedIn,
   showLeaderboard: state.dashboard.showLeaderboard,
   meta: state.dashboard.meta,
+  githubUser: state.application.githubUser,
 }), {
   loginWithGithub: actions.loginWithGithub
 })(Dashboard);
