@@ -168,6 +168,7 @@ class Dashboard extends React.Component {
             <div>
               <h2 className="title is-5">Leaderboard</h2><br />
               <p>
+                XX = Lighthouse Score<br />
                 <span className="fa fa-wifi" /> = Offline support<br />
                 <span className="fa fa-home" /> = Manifest installed
               </p>

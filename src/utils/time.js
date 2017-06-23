@@ -6,8 +6,8 @@ export const getElapsedTime = (timestamp) => moment(timestamp).fromNow();
 export const formatTimeCell = (timestamp, url, additionalMessage) =>
   (timestamp ? (
     url ?
-    <td><a href={url} target="_blank">{getElapsedTime(timestamp)} <span className="fa fa-check-circle" /></a></td> :
-    <td>{getElapsedTime(timestamp)} <span className="fa fa-check-circle" />
+    <td><a href={url} target="_blank">{getElapsedTime(timestamp)}</a></td> :
+    <td>{getElapsedTime(timestamp)}
       {additionalMessage && <br />}
       {additionalMessage && <span style={{fontSize: '11px', lineHeight: '10px'}}>{additionalMessage}</span>}</td>
     ) :
