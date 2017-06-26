@@ -26,10 +26,10 @@ class Form extends React.Component {
     return (
       <form onSubmit={handleSubmit}>
         <Field required readOnly component={inputField} name="teamName" label="Team Name" />
-        <Field required readOnly component={inputField} name="appName" label="Web Application Name">
+        <Field required component={inputField} name="appName" label="Web Application Name">
           <p className="sub-text">Retrieved from manifest.json file.</p>
           {
-            appIcon && <img src={appIcon} style={{ maxWidth: '50px' }} alt="app icon" />
+            appIcon && appIcon.length > 0 && <img src={appIcon} style={{ maxWidth: '50px' }} alt="app icon" />
           }
         </Field>
         <Field required component={textareaField} name="appDetail" label="Web Application Details">

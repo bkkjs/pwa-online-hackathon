@@ -87,9 +87,10 @@ exports.rankingChanged = functions.database.ref('/publicApplications/{applicatio
       const applications = applicationsSnapshot.val();
       const rankings = Object.keys(applications).map((key) => {
         const application = applications[key];
-        const latest = Math.max(application.committedAt || 0, application.deployedAt || 0, application.formSubmittedAt || 0);
-        const completed = !!(application.committedAt && application.deployedAt && application.formSubmittedAt && application.offlineSupported && application.manifestSupported);
-        const blank = !application.committedAt && !application.deployedAt && !application.formSubmittedAt;
+        const committedAt = application.committedAt > 1498222800000 ? application.committedAt : 0;
+        const latest = Math.max(committedAt, application.deployedAt || 0, application.formSubmittedAt || 0);
+        const completed = !!(committedAt && application.deployedAt && application.formSubmittedAt);
+        const blank = !committedAt && !application.deployedAt && !application.formSubmittedAt;
         return {
           latest,
           completed,
